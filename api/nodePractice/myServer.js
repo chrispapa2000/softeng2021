@@ -120,6 +120,7 @@ app.get('/ChargesBy/:op_ID/:date_from/:date_to',function(request, response) {
     console.log(date1);
     console.log(date2);
     //call backend
+    response.end("")
 });
 
 app.get('/hello',function(request, response) {
@@ -130,7 +131,7 @@ app.get('/hello',function(request, response) {
 });
 
 
-var server = app.listen(80, function () {
+var server = app.listen(9093, function () {
    var host = server.address().address
    var port = server.address().port
    console.log("Example app listening at http://%s:%s", host, port)
