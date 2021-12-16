@@ -1,5 +1,6 @@
 import sys
 import mariadb
+import json
 
 def main():
 
@@ -14,18 +15,28 @@ def main():
 
     except mariadb.Error as e:
         #print(f"Error connecting to MariaDB Platform: {e}")
-        print("unhealthy")
+        #print("unhealthy")
         sys.exit(1)
 
     # Get Cursor
     cur = conn.cursor()
     s_id = sys.argv[1]
     #do some work
-    cur.execute("SELECT Station_name FROM Station WHERE Station_id = ?", "OO05")
-    print(cur)
-
+    cur.execute("SELECT * FROM Pass WHERE stationStation_id = %s", (s_id,))
+    result = cur.fetchall()
+    i=0
+    #jsonObj = json.dumps(result)
+    for entry in result:
+        print(entry)
+    #print(jsonObj)
+    """
+    for line in result:
+        print(i)
+        i+=1
+        print(line)
+        """
     cur = conn.close()
-
-    print("healthy")
+    #print("length = " + str(len(result)))
+    #print("healthy")
 
 main()
