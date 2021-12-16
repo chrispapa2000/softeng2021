@@ -97,7 +97,7 @@ app.get('/PassesPerStation/:stationID/:date_from/:date_to',function(request, res
 
     var dataToSend;
     // spawn new child process to call the python script
-    const python = spawn('python3', ['PassesPerStation.py', s_id, date1, date2]);
+    const python = spawn('python3', ['../backend/PassesPerStation.py', s_id, date1, date2]);
     // collect data from script
     python.stdout.on('data', function (data) {
     console.log('Pipe data from python script ...');
