@@ -21,14 +21,14 @@ app.get('/admin/healthcheck', function (req, res) {
      ans = data.toString();
      if (ans === 'healthy\n')
      {
-       fs.readFile( __dirname + "/jason/" + "connected.json", 'utf8', function (err, data) {
+       fs.readFile( __dirname + "/json/" + "connected.json", 'utf8', function (err, data) {
           //console.log( data );
           res.end( data );
        });
      }
      else
      {
-       fs.readFile( __dirname + "/jason/" + "disconnected.json", 'utf8', function (err, data) {
+       fs.readFile( __dirname + "/json/" + "disconnected.json", 'utf8', function (err, data) {
           //console.log( data );
           res.end( data );
        });
@@ -40,12 +40,12 @@ app.get('/admin/resetpasses', function (req, res) {
    //call backend to reset passes
    /*
   if it is return:
-   fs.readFile( __dirname + "/jason/" + "ok.json", 'utf8', function (err, data) {
+   fs.readFile( __dirname + "/json/" + "ok.json", 'utf8', function (err, data) {
       //console.log( data );
       res.end( data );
    });
    else return:
-   fs.readFile( __dirname + "/jason/" + "failed.json", 'utf8', function (err, data) {
+   fs.readFile( __dirname + "/json/" + "failed.json", 'utf8', function (err, data) {
       //console.log( data );
       res.end( data );
    });
@@ -56,12 +56,12 @@ app.get('/admin/resetstations', function (req, res) {
    //call backend to reset intitial stations
    /*
   if it is return:
-   fs.readFile( __dirname + "/jason/" + "ok.json", 'utf8', function (err, data) {
+   fs.readFile( __dirname + "/json/" + "ok.json", 'utf8', function (err, data) {
       //console.log( data );
       res.end( data );
    });
    else return:
-   fs.readFile( __dirname + "/jason/" + "failed.json", 'utf8', function (err, data) {
+   fs.readFile( __dirname + "/json/" + "failed.json", 'utf8', function (err, data) {
       //console.log( data );
       res.end( data );
    });
@@ -72,12 +72,12 @@ app.get('/admin/resetvehicles', function (req, res) {
    //call backend to reset initial vehicles
    /*
   if it is return:
-   fs.readFile( __dirname + "/jason/" + "ok.json", 'utf8', function (err, data) {
+   fs.readFile( __dirname + "/json/" + "ok.json", 'utf8', function (err, data) {
       //console.log( data );
       res.end( data );
    });
    else return:
-   fs.readFile( __dirname + "/jason/" + "failed.json", 'utf8', function (err, data) {
+   fs.readFile( __dirname + "/json/" + "failed.json", 'utf8', function (err, data) {
       //console.log( data );
       res.end( data );
    });
