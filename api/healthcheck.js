@@ -39,7 +39,7 @@ function fun (req, response) {
        {
          fs.readFile( __dirname + "/json/" + "disconnected.json", 'utf8', function (err, data) {
             //console.log( data );
-            response.end( data );
+            response.end(remove_linebreaks(data + ans + "}"));
          });
        }
      }
