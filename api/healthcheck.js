@@ -7,6 +7,10 @@ module.exports = function(app)
     .get(fun);
 }
 
+function remove_linebreaks(str) {
+	return str.replace( /[\r\n]+/gm, "" );
+}
+
 function fun (req, response) {
    //call backend to check if connection is ok
    var ans;
@@ -27,8 +31,8 @@ function fun (req, response) {
        if (ans !== 'unhealthy\n')
        {
          fs.readFile( __dirname + "/json/" + "connected.json", 'utf8', function (err, data) {
-            //console.log( data );
-            response.end( data );
+		 //console.log( data + ans);
+		 response.end(remove_linebreaks(data + ans + "}"));
          });
        }
        else
