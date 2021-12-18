@@ -17,10 +17,10 @@ def main():
         print("unhealthy")
         sys.exit(1)
 
-    #print(conn)
+    print(conn)
 
     cur = conn.close()
 
-    print("healthy")
+    #print("healthy")
 
 main()
