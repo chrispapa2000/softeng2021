@@ -14,7 +14,7 @@ def main():
 
     except mariadb.Error as e:
         #print(f"Error connecting to MariaDB Platform: {e}")
-        print("unhealthy")
+        print(conn, end = '')
         sys.exit(1)
 
     print(conn, end = '')
