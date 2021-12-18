@@ -32,14 +32,25 @@ def main():
     cur.execute(statement)
     conn.commit()
 
-    #station
-    file = open("initial_data/stations.csv")
+    try:
+        #station
+        #this path is the path from the api folder, where the js file that runs this script resides
+        file = open("../backend/initial_data/stations.csv", "r")
+
+    except OSError as e:
+        print(e)
+        sys.exit(1)
+
     csvreader = csv.reader(file)
     for row in csvreader:
         statement = "INSERT INTO station (Station_id, Station_name) VALUES (%s, %s)"
         cur.execute(statement, row)
         conn.commit()
+
     file.close()
+
+
+
 
     conn.close()
 

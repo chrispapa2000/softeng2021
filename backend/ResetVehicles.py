@@ -33,7 +33,8 @@ def main():
     conn.commit()
 
     #vehicle
-    file = open("initial_data/vehicles.csv")
+    #this is the path from the api folder, where the js program that runs this script resides
+    file = open("../backend/initial_data/vehicles.csv")
     csvreader = csv.reader(file)
     for row in csvreader:
         statement = "INSERT INTO vehicle (Vehicle_ref) VALUES (%s)"

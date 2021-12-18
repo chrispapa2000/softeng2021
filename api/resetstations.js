@@ -17,8 +17,9 @@ function fun (req, response) {
    python.stdout.on('data', function (data) {
      console.log('Pipe data from python script ...');
      ans = data.toString();
+     console.log(ans)
    });
-
+   //console.log(python);
    python.on('close', (code) => {
      console.log(`child process close all stdio with code ${code}`);
      if (code === 0)
