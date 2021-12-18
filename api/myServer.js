@@ -5,40 +5,19 @@ var requestIp = require('request-ip');
 
 const {spawn} = require('child_process') // for python
 
+require('./hello')(app);
+require('./healthcheck')(app);
+require('./resetpasses.js')(app);
+
 app.post('/', function(req, res){
   res.statusCode = 200;
   res.end();
 })
-
-app.get('/admin/healthcheck', function (req, res) {
-   //call backend to check if connection is ok
-   var ans;
-   // spawn new child process to call the python script
-   const python = spawn('python3', ['../backend/healthy.py']);
-   // collect data from script
-   python.stdout.on('data', function (data) {
-     console.log('Pipe data from python script ...');
-     ans = data.toString();
-     if (ans !== 'unhealthy\n')
-     {
-       fs.readFile( __dirname + "/json/" + "connected.json", 'utf8', function (err, data) {
-          //console.log( data );
-          res.end( data );
-       });
-     }
-     else
-     {
-       fs.readFile( __dirname + "/json/" + "disconnected.json", 'utf8', function (err, data) {
-          //console.log( data );
-          res.end( data );
-       });
-     }
-   });
-})
-
-app.get('/admin/resetpasses', function (req, res) {
+/*
+//resetpasses
+app.post('/admin/resetpasses', function (req, res) {
    //call backend to reset passes
-   /*
+   
   if it is return:
    fs.readFile( __dirname + "/json/" + "ok.json", 'utf8', function (err, data) {
       //console.log( data );
@@ -49,9 +28,9 @@ app.get('/admin/resetpasses', function (req, res) {
       //console.log( data );
       res.end( data );
    });
-   */
-})
 
+})
+*/
 app.get('/admin/resetstations', function (req, res) {
    //call backend to reset intitial stations
    /*
@@ -94,7 +73,6 @@ app.get('/PassesPerStation/:stationID/:date_from/:date_to',function(request, res
 
     // create and run python child process
     //
-
     var dataToSend = [];
     // spawn new child process to call the python script
     const python = spawn('python3', ['../backend/PassesPerStation.py', s_id, date1, date2]);
@@ -105,18 +83,18 @@ app.get('/PassesPerStation/:stationID/:date_from/:date_to',function(request, res
     });
     // in close event we are sure that stream from child process is closed
     python.on('close', (code) => {
-    console.log(`child process close all stdio with code ${code}`);
-    if (code === 0)
-    {
-      // send data to browser
-      response.statusCode = 200;
-      response.send(dataToSend.join(""))
-    }
-    else
-    {
-      response.statusCode = 500; //internal server console.error
-      response.end();
-    }
+      console.log(`child process close all stdio with code ${code}`);
+      if (code === 0)
+      {
+        // send data to browser
+        response.statusCode = 200;
+        response.send(dataToSend.join(""))
+      }
+      else
+      {
+        response.statusCode = 500; //internal server console.error
+        response.end();
+      }
     });
 
     //
@@ -150,14 +128,6 @@ app.get('/ChargesBy/:op_ID/:date_from/:date_to',function(request, response) {
     response.statusCode = 200;
     response.end();
     //call backend
-});
-
-app.get('/hello',function(request, response) {
-    var clientIp = requestIp.getClientIp(request);
-    console.log("IP of connected client: ")
-    console.log(clientIp);
-    response.statusCode = 200;
-    response.end("hello dear friend, welcome to my RESTful API!! your IP address is: " + clientIp);
 });
 
 app.get('*', function(request, response){
