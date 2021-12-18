@@ -14,12 +14,12 @@ app.get('/admin/healthcheck', function (req, res) {
    //call backend to check if connection is ok
    var ans;
    // spawn new child process to call the python script
-   const python = spawn('python3', ['healthy.py', 'hello']);
+   const python = spawn('python3', ['../backend/healthy.py']);
    // collect data from script
    python.stdout.on('data', function (data) {
      console.log('Pipe data from python script ...');
      ans = data.toString();
-     if (ans === 'healthy\n')
+     if (ans !== 'unhealthy\n')
      {
        fs.readFile( __dirname + "/json/" + "connected.json", 'utf8', function (err, data) {
           //console.log( data );
