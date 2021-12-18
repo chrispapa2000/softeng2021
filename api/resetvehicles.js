@@ -12,7 +12,7 @@ function fun (req, response) {
    //call backend to check if connection is ok
    var ans;
    // spawn new child process to call the python script
-   const python = spawn('python3', ['../backend/resetvehicles.py']);
+   const python = spawn('python3', ['../backend/ResetVehicles.py']);
    // collect data from script
    python.stdout.on('data', function (data) {
      console.log('Pipe data from python script ...');

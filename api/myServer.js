@@ -11,12 +11,6 @@ require('./resetpasses.js')(app);
 require('./resetstations')(app);
 require('./resetvehicles')(app);
 
-app.post('/', function(req, res){
-  res.statusCode = 200;
-  res.end();
-})
-
-
 app.get('/PassesPerStation/:stationID/:date_from/:date_to',function(request, response) {
     var s_id = request.params.stationID;
     var date1 = request.params.date_from;
@@ -84,9 +78,16 @@ app.get('/ChargesBy/:op_ID/:date_from/:date_to',function(request, response) {
     //call backend
 });
 
+//catch all incorrect post calls
+app.post('*', function(request, response){
+  response.statusCode = 400; //?error statusCode
+  response.end("you send an invalid post request")
+})
+
+//catch all incorrect get calls
 app.get('*', function(request, response){
   response.statusCode = 400; //?error statusCode
-  response.end("you send an invalid request")
+  response.end("you send an invalid get request")
 })
 
 
