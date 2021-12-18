@@ -105,18 +105,18 @@ app.get('/PassesPerStation/:stationID/:date_from/:date_to',function(request, res
     });
     // in close event we are sure that stream from child process is closed
     python.on('close', (code) => {
-      console.log(`child process close all stdio with code ${code}`);
-      if (code === 0)
-      {
-        // send data to browser
-        response.statusCode = 200;
-        response.send(dataToSend.join(""))
-      }
-      else
-      {
-        response.statusCode = 500; //internal server console.error
-        response.end();
-      }
+    console.log(`child process close all stdio with code ${code}`);
+    if (code === 0)
+    {
+      // send data to browser
+      response.statusCode = 200;
+      response.send(dataToSend.join(""))
+    }
+    else
+    {
+      response.statusCode = 500; //internal server console.error
+      response.end();
+    }
     });
 
     //

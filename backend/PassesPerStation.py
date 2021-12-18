@@ -14,7 +14,7 @@ def main():
         )
 
     except mariadb.Error as e:
-        #print(f"Error connecting to MariaDB Platform: {e}")
+        print(f"Error connecting to MariaDB Platform: {e}")
         #print("unhealthy")
         sys.exit(1)
 
@@ -24,7 +24,6 @@ def main():
     #do some work
     cur.execute("SELECT * FROM Pass WHERE stationStation_id = %s", (s_id,))
     result = cur.fetchall()
-    i=0
     #jsonObj = json.dumps(result)
     for entry in result:
         print(entry)
