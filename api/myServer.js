@@ -100,15 +100,23 @@ app.get('/PassesPerStation/:stationID/:date_from/:date_to',function(request, res
     const python = spawn('python3', ['../backend/PassesPerStation.py', s_id, date1, date2]);
     // collect data from script
     python.stdout.on('data', function (data) {
-    console.log('Pipe data from python script ...');
-    dataToSend.push(data)//.toString();
+      console.log('Pipe data from python script ...');
+      dataToSend.push(data)//.toString();
     });
     // in close event we are sure that stream from child process is closed
     python.on('close', (code) => {
-    console.log(`child process close all stdio with code ${code}`);
-    // send data to browser
-    response.statusCode = 200;
-    response.send(dataToSend.join(""))
+      console.log(`child process close all stdio with code ${code}`);
+      if (code === 0)
+      {
+        // send data to browser
+        response.statusCode = 200;
+        response.send(dataToSend.join(""))
+      }
+      else
+      {
+        response.statusCode = 500; //internal server console.error
+        response.end();
+      }
     });
 
     //
