@@ -17,7 +17,7 @@ def main():
         print("unhealthy")
         sys.exit(1)
 
-    print(conn)
+    print(conn, end = '')
 
     cur = conn.close()
 
