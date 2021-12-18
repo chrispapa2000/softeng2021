@@ -8,60 +8,14 @@ const {spawn} = require('child_process') // for python
 require('./hello')(app);
 require('./healthcheck')(app);
 require('./resetpasses.js')(app);
+require('./resetstations')(app);
+require('./resetvehicles')(app);
 
 app.post('/', function(req, res){
   res.statusCode = 200;
   res.end();
 })
-/*
-//resetpasses
-app.post('/admin/resetpasses', function (req, res) {
-   //call backend to reset passes
-   
-  if it is return:
-   fs.readFile( __dirname + "/json/" + "ok.json", 'utf8', function (err, data) {
-      //console.log( data );
-      res.end( data );
-   });
-   else return:
-   fs.readFile( __dirname + "/json/" + "failed.json", 'utf8', function (err, data) {
-      //console.log( data );
-      res.end( data );
-   });
 
-})
-*/
-app.get('/admin/resetstations', function (req, res) {
-   //call backend to reset intitial stations
-   /*
-  if it is return:
-   fs.readFile( __dirname + "/json/" + "ok.json", 'utf8', function (err, data) {
-      //console.log( data );
-      res.end( data );
-   });
-   else return:
-   fs.readFile( __dirname + "/json/" + "failed.json", 'utf8', function (err, data) {
-      //console.log( data );
-      res.end( data );
-   });
-   */
-})
-
-app.get('/admin/resetvehicles', function (req, res) {
-   //call backend to reset initial vehicles
-   /*
-  if it is return:
-   fs.readFile( __dirname + "/json/" + "ok.json", 'utf8', function (err, data) {
-      //console.log( data );
-      res.end( data );
-   });
-   else return:
-   fs.readFile( __dirname + "/json/" + "failed.json", 'utf8', function (err, data) {
-      //console.log( data );
-      res.end( data );
-   });
-   */
-})
 
 app.get('/PassesPerStation/:stationID/:date_from/:date_to',function(request, response) {
     var s_id = request.params.stationID;
