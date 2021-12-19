@@ -11,15 +11,15 @@ def main():
             port=3306, #???
             database="tolltrolls"
         )
-
+    
+        print(conn, end = '')  
+        cur = conn.close()
     except mariadb.Error as e:
         #print(f"Error connecting to MariaDB Platform: {e}")
-        print(conn, end = '')
+        #print(conn, end = '')
         sys.exit(1)
 
-    print(conn, end = '')
 
-    cur = conn.close()
 
     #print("healthy")
 
