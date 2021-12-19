@@ -65,7 +65,8 @@ def main():
     dic["PassesList"] = PassesList
     
     j = json.dumps(dic)
-
+    
+    """
     csv = True#False
     if csv:
         import pandas as pd
@@ -74,6 +75,9 @@ def main():
         print(c)
     else:
         print(j)
+    """
+
+    print(j)
 
     cur = conn.close()
 
