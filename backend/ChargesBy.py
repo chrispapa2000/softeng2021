@@ -25,14 +25,19 @@ def main():
     time_s = datetime.datetime.strptime(sys.argv[2], "%Y%m%d")
     time_f = datetime.datetime.strptime(sys.argv[3], "%Y%m%d")
     
-    print(op_id)
+    dic = dict()
+    #print(op_id)
+    dic["op_id"] = op_id
     now = datetime.datetime.now()
-    print(now.strftime("%Y-%m-%d %H:%M:%S"))
-    print(time_s)
-    print(time_f)
+    #print(now.strftime("%Y-%m-%d %H:%M:%S"))
+    dic["RequestTimestamp"] = now.strftime("%Y-%m-%d %H:%M:%S")
+    #print(time_s)
+    dic["PeriodFrom"] = time_s.strftime("%Y-%m-%d %H:%M:%S")
+    #print(time_f)
+    dic["PeriodTo"] = time_f.strftime("%Y-%m-%d %H:%M:%S")
     
     companies = ["AO", "KO", "GF", "NE", "EG", "MR", "OO"]
-    
+    PPOList = []
     for comp in companies:
         if comp == op_id:
             continue
@@ -47,9 +52,19 @@ def main():
             continue
             
         tup = (comp, len(result), sum)
-        print(tup)
+        #print(tup)
+        d2 = dict()
+        d2["VisitingOperator"] = comp
+        d2["NumberOfPasses"] = len(result)
+        d2["PassesCost"] = sum
+        PPOList.append(d2)
 
 
     cur = conn.close()
+    
+    dic["PPOList"] = PPOList
+
+    fin = json.dumps(dic)
+    print(fin)
 
 main()
