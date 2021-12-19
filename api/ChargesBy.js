@@ -3,7 +3,7 @@ const {spawn} = require('child_process') // for python
 
 module.exports = function(app)
 {
-  app.route('/ChargesBy/:op_ID/:date_from/:date_to')
+  app.route('/interoperability/api/ChargesBy/:op_ID/:date_from/:date_to')
     .get(fun);
 }
 

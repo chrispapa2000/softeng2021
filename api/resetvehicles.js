@@ -3,7 +3,7 @@ const {spawn} = require('child_process') // for python
 
 module.exports = function(app)
 {
-  app.route('/admin/resetvehicles')
+  app.route('/interoperability/api/admin/resetvehicles')
     .post(fun);
 }
 
