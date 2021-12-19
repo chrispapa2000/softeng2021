@@ -3,6 +3,7 @@ import mariadb
 import json
 import datetime
 import time
+import csv
 
 def main():
 
@@ -41,17 +42,20 @@ def main():
     totalcost = 0
     current_date = datetime.datetime.now()
     for entry in result:
-        totalcost += entry[0]
-    print("{Station Operator: " + op1 + ", Tag Operator:  " + 
-            op2 + ", Current date:  " + str(current_date.strftime("%d/%m/%Y %H:%M:%S")) + ", From: " + datefrom + " To: " + dateto + ", Total Number Of Passes: " + str(number_of_passes) + ", Total Passes Cost: " + str(totalcost) + "}")
-    """
-    for line in result:
-        print(i)
-        i+=1
-        print(line)
-        """
+        totalcost += float(entry[0])
+    json_data = {"op1_ID": op1, "op2_ID": op2, "RequestTimestamp": current_date.strftime("%d/%m/%Y %H:%M:%S"), "PeriodFrom": datefrom, "PeriodTo": dateto, "NumberOfPasses": str(number_of_passes), "PassesCost": str(totalcost)}
+    json_formatted_str = json.dumps(json_data, indent=2)
+    print(json_formatted_str)
+    #print("{op1_ID : " + op1 + ", op2_ID:  " + 
+    #        op2 + ", RequestTimestamp:  " + str(current_date.strftime("%d/%m/%Y %H:%M:%S")) + ", PeriodFrom: " + datefrom + " PeriodTo: " +
+   #         dateto + ", NumberOfPasses: " + str(number_of_passes) + ", PassesCost: " + str(totalcost) + "}")
+    with open('PassesCost.csv', mode='w') as csv_file:
+        fieldnames = ['op1_ID', 'op2_ID', 'RequestTimestamp', 'PeriodFrom',
+                'PeriodTo', 'NumberOfPasses', 'PassesCost']
+        writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerow({'op1_ID': op1, 'op2_ID': op2, 
+            'RequestTimestamp': str(current_date.strftime("%d/%m/%Y %H:%M:%S")), 'PeriodFrom': datefrom,
+            'PeriodTo': dateto, 'NumberOfPasses': str(number_of_passes), 'PassesCost': str(totalcost)})
     cur = conn.close()
-    #print("length = " + str(len(result)))
-    #print("healthy")
-
 main()
