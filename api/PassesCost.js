@@ -7,7 +7,7 @@ module.exports = function(app)
     .get(fun);
 }
 
-function ConvertToCSV(obj) {
+function ConvertObjToCSV(obj) {
             var str = '';
 
             var line = '';
@@ -83,8 +83,8 @@ function fun (request, response) {
             "PassesCost": "PassesCost"
           };
 
-          var csvContent = ConvertToCSV(headers);
-          csvContent += ConvertToCSV(JSON.parse(toSend));
+          var csvContent = ConvertObjToCSV(headers);
+          csvContent += ConvertObjToCSV(JSON.parse(toSend));
           console.log(csvContent);
           response.send(csvContent);
         }

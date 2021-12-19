@@ -7,6 +7,40 @@ module.exports = function(app)
     .get(fun);
 }
 
+function ConvertObjToCSV(obj) {
+            var str = '';
+
+            var line = '';
+            for (var index in obj) {
+                if (line != '') line += ','
+
+                line += obj[index];
+            }
+
+            str += line + '\r\n';
+
+
+            return str;
+}
+
+function ConvertToCSV(objArray) {
+    var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+    var str = '';
+
+    for (var i = 0; i < array.length; i++) {
+        var line = '';
+        for (var index in array[i]) {
+            if (line != '') line += ','
+
+            line += array[i][index];
+        }
+
+        str += line + '\r\n';
+    }
+
+    return str;
+}
+
 //resetpasses
 function fun (request, response) {
     var s_id = request.params.stationID;
@@ -35,7 +69,55 @@ function fun (request, response) {
         //if python script closed without errors
         //send data to browser
         response.statusCode = 200; //status ok
-        response.send(dataToSend.join(""))
+        toSend = dataToSend.join("");
+        if (false)
+        {
+          response.send(toSend)
+        }
+        else{
+          var header1 = {
+            "Station": "Station",
+            "StationOperator": "StationOperator",
+            "RequestTimestamp": "RequestTimestamp",
+            "PeriodFrom": "PeriodFrom",
+            "PeriodTo": "PeriodTo",
+            "NumberOfPasses": "NumberOfPasses"
+          };
+
+          var csvContent = ConvertObjToCSV(header1);
+          var obj = JSON.parse(toSend);
+
+          csvContent += obj.Station;
+          csvContent += ',';
+          csvContent += obj.StationOperator;
+          csvContent += ',';
+          csvContent += obj.RequestTimestamp;
+          csvContent += ',';
+          csvContent += obj.PeriodFrom;
+          csvContent += ',';
+          csvContent += obj.PeriodTo;
+          csvContent += ',';
+          csvContent += obj.NumberOfPasses;
+          csvContent += '\n\n';
+
+          var header2 = {
+            "PassIndex": "PassIndex",
+            "PassID": "PassID",
+            "PassTimeStamp": "PassTimeStamp",
+            "VevicleID": "VevicleID",
+            "TagProvider": "TagProvider",
+            "PassType": "PassType",
+            "PassCharge": "PassCharge"
+          };
+
+          csvContent += ConvertObjToCSV(header2);
+
+
+          var passesList = obj.PassesList;
+          csvContent += ConvertToCSV(passesList);
+          console.log(csvContent);
+          response.send(csvContent);
+        }
       }
       else
       {
