@@ -46,16 +46,5 @@ def main():
     json_data = {"op1_ID": op1, "op2_ID": op2, "RequestTimestamp": current_date.strftime("%d/%m/%Y %H:%M:%S"), "PeriodFrom": datefrom, "PeriodTo": dateto, "NumberOfPasses": str(number_of_passes), "PassesCost": str(totalcost)}
     json_formatted_str = json.dumps(json_data, indent=2)
     print(json_formatted_str)
-    #print("{op1_ID : " + op1 + ", op2_ID:  " + 
-    #        op2 + ", RequestTimestamp:  " + str(current_date.strftime("%d/%m/%Y %H:%M:%S")) + ", PeriodFrom: " + datefrom + " PeriodTo: " +
-   #         dateto + ", NumberOfPasses: " + str(number_of_passes) + ", PassesCost: " + str(totalcost) + "}")
-    with open('PassesCost.csv', mode='w') as csv_file:
-        fieldnames = ['op1_ID', 'op2_ID', 'RequestTimestamp', 'PeriodFrom',
-                'PeriodTo', 'NumberOfPasses', 'PassesCost']
-        writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
-        writer.writeheader()
-        writer.writerow({'op1_ID': op1, 'op2_ID': op2, 
-            'RequestTimestamp': str(current_date.strftime("%d/%m/%Y %H:%M:%S")), 'PeriodFrom': datefrom,
-            'PeriodTo': dateto, 'NumberOfPasses': str(number_of_passes), 'PassesCost': str(totalcost)})
     cur = conn.close()
 main()
