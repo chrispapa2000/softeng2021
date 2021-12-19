@@ -34,7 +34,7 @@ function ConvertToCSV(objArray) {
 
             line += array[i][index];
         }
-
+        if (i === (array.length-1)) str += '"';
         str += line + '\r\n';
     }
 
@@ -81,7 +81,8 @@ function fun (request, response) {
             "RequestTimestamp": "RequestTimestamp",
             "PeriodFrom": "PeriodFrom",
             "PeriodTo": "PeriodTo",
-            "NumberOfPasses": "NumberOfPasses"
+            "NumberOfPasses": "NumberOfPasses",
+            "PassesList": "PassesList"
           };
 
           var csvContent = ConvertObjToCSV(header1);
@@ -98,7 +99,8 @@ function fun (request, response) {
           csvContent += obj.PeriodTo;
           csvContent += ',';
           csvContent += obj.NumberOfPasses;
-          csvContent += '\n\n';
+          csvContent += ',';
+          csvContent += '"';
 
           var header2 = {
             "PassIndex": "PassIndex",
@@ -112,6 +114,7 @@ function fun (request, response) {
 
           csvContent += ConvertObjToCSV(header2);
 
+          //csvContent += '\n';
 
           var passesList = obj.PassesList;
           csvContent += ConvertToCSV(passesList);
