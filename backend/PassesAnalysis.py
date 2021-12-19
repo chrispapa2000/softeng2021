@@ -21,16 +21,17 @@ def main():
 
     # Get Cursor
     cur = conn.cursor()
-    s_id = sys.argv[1]
-    time_s = datetime.datetime.strptime(sys.argv[2], "%Y%m%d")
-    time_f = datetime.datetime.strptime(sys.argv[3], "%Y%m%d")
-    cur.execute("SELECT * FROM Pass WHERE stationStation_id = %s AND Timestamp > %s AND Timestamp < %s", (s_id, time_s, time_f,))
+    op1 = sys.argv[1]
+    op2 = sys.argv[2]
+    time_s = datetime.datetime.strptime(sys.argv[3], "%Y%m%d")
+    time_f = datetime.datetime.strptime(sys.argv[4], "%Y%m%d")
+    cur.execute("SELECT * FROM Pass WHERE LEFT(stationStation_id, 2) = %s AND companyCompany_abbr = %s AND Timestamp > %s AND Timestamp < %s", (op1, op2, time_s, time_f))
     result = cur.fetchall()
     dic = dict()
-    #print('{"Station": "' + str(s_id) + '",')
-    dic["Station"] = s_id
+    #print('{"op1_ID": "' + str(op1_ID) + '",')
+    dic["op1_ID"] = op1
     #print('"StationOperator": "' + str(s_id[0:2]) + '",')
-    dic["StationOperator"] = s_id[0:2]
+    dic["op2_ID"] = op2
     now = datetime.datetime.now()
     #print('"RequestTimestamp": "' + str(now.strftime("%Y-%m-%d %H:%M:%S")) + '",')
     dic["RequestTimestamp"] = now.strftime("%Y-%m-%d %H:%M:%S")
@@ -45,20 +46,16 @@ def main():
     i = 1
     for entry in result:
         str_time = entry[1].strftime("%Y-%m-%d %H:%M:%S")
-        PassType = "visitor"
-        if entry[3][0:2] == entry[4]:
-            PassType = "home"
         cur.execute("SELECT Charge_amount FROM charge WHERE PassPass_id = %s", (entry[0],))
         charge_amount = float(cur.fetchall()[0][0])
-        tup = (i, entry[0], str_time, entry[2], entry[4], PassType, charge_amount)
+        tup = (i, entry[0], entry[3], str_time ,entry[2], charge_amount)
         d2 = dict()
         d2["PassIndex"] = i
         d2["PassID"] = entry[0]
-        d2["PassTimeStamp"] = str_time
+        d2["StationID"] = entry[3]
+        d2["TimeStamp"] = str_time
         d2["VehicleID"] = entry[2]
-        d2["TagProvider"] = entry[4]
-        d2["PassType"] = PassType
-        d2["PassCharge"] = charge_amount
+        d2["Charge"] = charge_amount
         PassesList.append(d2)
         i += 1
 
