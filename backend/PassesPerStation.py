@@ -49,7 +49,7 @@ def main():
         if entry[3][0:2] == entry[4]:
             PassType = "home"
         cur.execute("SELECT Charge_amount FROM charge WHERE PassPass_id = %s", (entry[0],))
-        charge_amount = cur.fetchall()[0][0]
+        charge_amount = float(cur.fetchall()[0][0])
         tup = (i, entry[0], str_time, entry[2], entry[4], PassType, charge_amount)
         d2 = dict()
         d2["PassIndex"] = i
