@@ -64,7 +64,7 @@ def main():
 
     dic["PassesList"] = PassesList
     
-    j = json.dumps(dic)
+    j = json.dumps(dic, indent = 2)
     
     """
     csv = True#False

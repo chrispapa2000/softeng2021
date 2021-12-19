@@ -64,7 +64,7 @@ def main():
     
     dic["PPOList"] = PPOList
 
-    fin = json.dumps(dic)
+    fin = json.dumps(dic, indent = 2)
     print(fin)
 
 main()
