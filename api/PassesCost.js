@@ -7,6 +7,40 @@ module.exports = function(app)
     .get(fun);
 }
 
+function ConvertToCSV(obj) {
+            var str = '';
+
+            var line = '';
+            for (var index in obj) {
+                if (line != '') line += ','
+
+                line += obj[index];
+            }
+
+            str += line + '\r\n';
+
+
+            return str;
+}
+/*
+function ConvertToCSV(objArray) {
+    var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+    var str = '';
+
+    for (var i = 0; i < array.length; i++) {
+        var line = '';
+        for (var index in array[i]) {
+            if (line != '') line += ','
+
+            line += array[i][index];
+        }
+
+        str += line + '\r\n';
+    }
+
+    return str;
+}
+*/
 function fun (request, response) {
     var op1 = request.params.op1_ID;
     var op2 = request.params.op2_ID;
@@ -32,7 +66,13 @@ function fun (request, response) {
         //if python script closed without errors
         //send data to browser
         response.statusCode = 200; //status ok
-        response.send(dataToSend.join(""))
+        toSend = dataToSend.join("")
+        //response.send(toSend);
+
+        var csv = ConvertToCSV(JSON.parse(toSend));
+        console.log(csv);
+        response.send(csv);
+
       }
       else
       {
