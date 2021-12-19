@@ -67,12 +67,50 @@ function fun (request, response) {
         //send data to browser
         response.statusCode = 200; //status ok
         toSend = dataToSend.join("")
-        //response.send(toSend);
+        if (false)
+        {
+          console.log(toSend);
+          response.send(toSend);
+        }
+        else {
+          var headers = {
+            "op1_ID": "op1_ID",
+            "op2_ID": "op2_ID",
+            "RequestTimestamp": "RequestTimestamp",
+            "PeriodFrom": "PeriodFrom",
+            "PeriodTo": "PeriodTo",
+            "NumberOfPasses": "NumberOfPasses",
+            "PassesCost": "PassesCost"
+          };
 
-        var csv = ConvertToCSV(JSON.parse(toSend));
-        console.log(csv);
-        response.send(csv);
+          var csvContent = ConvertToCSV(headers);
+          csvContent += ConvertToCSV(JSON.parse(toSend));
+          console.log(csvContent);
+          response.send(csvContent);
 
+          var download = function(content, fileName, mimeType) {
+            var a = document.createElement('a');
+            mimeType = mimeType || 'application/octet-stream';
+
+            if (navigator.msSaveBlob) { // IE10
+              navigator.msSaveBlob(new Blob([content], {
+                type: mimeType
+              }), fileName);
+            } else if (URL && 'download' in a) { //html5 A[download]
+              a.href = URL.createObjectURL(new Blob([content], {
+                type: mimeType
+              }));
+              a.setAttribute('download', fileName);
+              document.body.appendChild(a);
+              a.click();
+              document.body.removeChild(a);
+            } else {
+              location.href = 'data:application/octet-stream,' + encodeURIComponent(content); // only this mime type is supported
+            }
+          }
+
+          download(csvContent, 'dowload.csv', 'text/csv;encoding:utf-8');
+        }
       }
       else
       {
