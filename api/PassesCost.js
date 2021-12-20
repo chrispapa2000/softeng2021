@@ -85,7 +85,7 @@ function fun (request, response) {
 
           var csvContent = ConvertObjToCSV(headers);
           csvContent += ConvertObjToCSV(JSON.parse(toSend));
-          console.log(csvContent);
+          //console.log(csvContent);
           response.send(csvContent);
         }
       }

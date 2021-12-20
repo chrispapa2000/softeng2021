@@ -118,7 +118,7 @@ function fun (request, response) {
 
           var passesList = obj.PassesList;
           csvContent += ConvertToCSV(passesList);
-          console.log(csvContent);
+          //console.log(csvContent);
           response.send(csvContent);
         }
       }
