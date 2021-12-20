@@ -46,6 +46,8 @@ function fun (request, response) {
     var op2 = request.params.op2_ID;
     var date1 = request.params.date_from;
     var date2 = request.params.date_to;
+    var format = request.query.format;
+    if ((typeof format) === "undefined") format = "json";
     //console.log(date1);
     //console.log(date2);
     //call backend
@@ -67,7 +69,7 @@ function fun (request, response) {
         //send data to browser
         response.statusCode = 200; //status ok
         toSend = dataToSend.join("")
-        if (false)
+        if (format === "json")
         {
           console.log(toSend);
           response.send(toSend);
