@@ -1,6 +1,5 @@
-# Back-end
+# **Back-end**
+  
+  - Source Code for insering, managing and accessing data from the database.
 
-Περιεχόμενα:
-
-- Πηγαίος κώδικας εφαρμογής για εισαγωγή, διαχείριση και
-  πρόσβαση σε δεδομένα (backend).
+  - Every python script outputs a json stream with the contents asked.
