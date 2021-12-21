@@ -1,6 +1,7 @@
 # **Installation**
 
 - Clone this repository
+  > git clone https://github.com/ntua/TL21-57
 
 - Install node.js, NPM, python3, pip and mariadb using:
   - For Debian based distros: 
