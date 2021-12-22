@@ -1,6 +1,7 @@
-# database
+# **Database**
 
-Περιεχόμενα:
+Contents:
 
-- Database dump (sql ή json)
-
+  - Database dump (sql).
+  
+  - Implemented in mariadb. 
