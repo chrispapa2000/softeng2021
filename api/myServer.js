@@ -7,7 +7,7 @@ const {spawn} = require('child_process') // for python
 
 require('./hello')(app);
 require('./healthcheck')(app);
-require('./resetpasses.js')(app);
+require('./resetpasses')(app);
 require('./resetstations')(app);
 require('./resetvehicles')(app);
 require('./PassesPerStation')(app);
