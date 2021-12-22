@@ -3,7 +3,7 @@ const {spawn} = require('child_process') // for python
 
 module.exports = function(app)
 {
-  app.route('interoperability/api/admin/healthcheck')
+  app.route('/interoperability/api/admin/healthcheck')
     .get(fun);
 }
 
@@ -28,20 +28,19 @@ function fun (req, response) {
      {
        // send data to browser
        response.statusCode = 200;
-       if (ans !== 'unhealthy\n')
-       {
-         fs.readFile( __dirname + "/json/" + "connected.json", 'utf8', function (err, data) {
-		 //console.log( data + ans);
-		 response.end(remove_linebreaks(data + ans + "}"));
-         });
-       }
-       else
-       {
-         fs.readFile( __dirname + "/json/" + "disconnected.json", 'utf8', function (err, data) {
-            //console.log( data );
-            response.end(remove_linebreaks(data + ans + "}"));
-         });
-       }
+
+       fs.readFile( __dirname + "/json/" + "connected.json", 'utf8', function (err, data) {
+	     //console.log( data + ans);
+	     response.end(remove_linebreaks(data + ans + "}"));
+       });
+     }
+     else if (code === 2)
+     {
+       response.statusCode = 200;
+       fs.readFile( __dirname + "/json/" + "disconnected.json", 'utf8', function (err, data) {
+          //console.log( data );
+          response.end(remove_linebreaks(data + ans + "}"));
+       });
      }
      else
      {
