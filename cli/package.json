@@ -6,14 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-
   "keywords": [
-"cli"
-    ],
-    "bin": {
- "se2157": "./bin/index.js"
-    },
-
+    "cli"
+  ],
+  "bin": {
+    "se2157": "./bin/index.js"
+  },
   "author": "Christos Papadimitriou",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "yargs": "^17.3.1"
+  }
 }

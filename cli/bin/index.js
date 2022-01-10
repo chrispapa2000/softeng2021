@@ -1,2 +1,13 @@
 #! /usr/bin/env node
-console.log("Hello World!");
+
+const yargs = require("yargs");
+const utils = require('./utils.js')
+
+const usage = "\nUsage: healthcheck";const options = yargs
+      .usage(usage)
+      .help(false)
+      .version(false)
+      .argv;
+
+var sentence = utils.healthy();
+//console.log("Hello World!");
