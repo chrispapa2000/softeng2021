@@ -17,6 +17,30 @@ module.exports = { ret: ret };function ret(station, datefrom, dateto, format)
       {
         var res = JSON.parse(data);
         console.log(res)
+
+        //write file in json format
+        'use strict';
+        const fs = require('fs');
+        fs.writeFileSync('../responses/passesperstation.json', data);
+
+        //write file in csv format
+        const createCsvWriter = require('csv-writer').createObjectCsvWriter;
+        const csvWriter = createCsvWriter({
+          path: 'out.csv',
+          header: [
+            {id: 'PassIndex', title: 'PassIndex'},
+            {id: 'PassID', title: 'PassID'},
+            {id: 'PassTimeStamp', title: 'PassTimeStamp'},
+            {id: 'VehicleID', title: 'VehicleID'},
+            {id: 'TagProvider', title: 'TagProvider'},
+            {id: 'PassType', title: 'PassType'},
+            {id: 'PassCharge', title: 'PassCharge'}
+          ]
+        });
+
+        csvWriter
+          .writeRecords(res.PassesList)
+          .then(()=> console.log('The CSV file was written successfully'));
       }
       else console.log(data)
     });

@@ -1,0 +1,18 @@
+{
+  "op1_ID": "AO",
+  "op2_ID": "OO",
+  "RequestTimestamp": "2022-01-11 17:49:10",
+  "PeriodFrom": "2020-01-01 00:00:00",
+  "PeriodTo": "2020-01-04 00:00:00",
+  "NumberOfPasses": 1,
+  "PassesList": [
+    {
+      "PassIndex": 1,
+      "PassID": "SUM5157958",
+      "StationID": "AO00",
+      "TimeStamp": "2020-01-03 14:48:00",
+      "VehicleID": "XV40HUQ04740",
+      "Charge": 3.0
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "op_id": "OO",
+  "RequestTimestamp": "2022-01-11 17:49:31",
+  "PeriodFrom": "2020-01-01 00:00:00",
+  "PeriodTo": "2020-08-01 00:00:00",
+  "PPOList": [
+    {
+      "VisitingOperator": "AO",
+      "NumberOfPasses": 37,
+      "PassesCost": 77
+    },
+    {
+      "VisitingOperator": "KO",
+      "NumberOfPasses": 39,
+      "PassesCost": 85
+    },
+    {
+      "VisitingOperator": "GF",
+      "NumberOfPasses": 43,
+      "PassesCost": 89
+    },
+    {
+      "VisitingOperator": "NE",
+      "NumberOfPasses": 27,
+      "PassesCost": 64
+    },
+    {
+      "VisitingOperator": "EG",
+      "NumberOfPasses": 31,
+      "PassesCost": 65
+    },
+    {
+      "VisitingOperator": "MR",
+      "NumberOfPasses": 32,
+      "PassesCost": 73
+    }
+  ]
+}

@@ -13,8 +13,17 @@ module.exports = { ret: ret };function ret(op, datefrom, dateto, format)
     // The whole response has been received. Print out the result.
     resp.on('end', () => {
       //console.log(data);
-      var res = JSON.parse(data);
-      console.log(res);
+      if (format == 'json')
+      {
+        var res = JSON.parse(data);
+        console.log(res);
+
+        //write file in json format
+        'use strict';
+        const fs = require('fs');
+        fs.writeFileSync('../responses/chargesby.json', data);
+      }
+      else console.log(data)
     });
 
   }).on("error", (err) => {
