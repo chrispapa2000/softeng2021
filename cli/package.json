@@ -15,6 +15,7 @@
   "author": "Christos Papadimitriou",
   "license": "ISC",
   "dependencies": {
+    "xmlhttprequest": "^1.8.0",
     "yargs": "^17.3.1"
   }
 }
