@@ -66,7 +66,8 @@ require('yargs/yargs')(process.argv.slice(2))
         desc: 'format',
         type: 'string',
         demandOption: true
-      }),
+      })
+      .choices('format', ["json", "csv"]),
     handler: (argv) => {
       //console.log('passesperstation');
       passesperstation.ret(argv.station, argv.datefrom, argv.dateto, argv.format)
@@ -105,6 +106,7 @@ require('yargs/yargs')(process.argv.slice(2))
         type: 'string',
         demandOption: true
       })
+      .choices('format', ["json", "csv"])
   })
   .command({
     command: 'passescost',
@@ -139,6 +141,7 @@ require('yargs/yargs')(process.argv.slice(2))
         type: 'string',
         demandOption: true
       })
+      .choices('format', ["json", "csv"])
   })
   .command({
     command: 'chargesby',
@@ -168,12 +171,26 @@ require('yargs/yargs')(process.argv.slice(2))
         type: 'string',
         demandOption: true
       })
+      .choices('format', ["json", "csv"])
   })
   .command({
     command: 'admin',
     desc: 'for administrator purposes',
+    builder: (yargs) => yargs
+      .option('passesupd', {
+        desc: 'passes update',
+        type: 'string',
+        demandOption: true
+      })
+      .choices('passesupd', [""])
+      .option('source', {
+        desc: 'source file for update',
+        type: 'string',
+        demandOption: true
+      }),
     handler: (argv) => {
-      console.log('admin')
+      //if (typeof(argv.passesupd) != "undefined") console.log(help)
+      console.log('admin, first arguement: ' + argv.passesupd + ', second arguement: ' + argv.source)
     }
   })
   // provide a minimum demand and a minimum demand message
