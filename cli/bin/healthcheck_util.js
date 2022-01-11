@@ -1,8 +1,8 @@
-  const https = require('http');
+const http = require('http');
 
 module.exports = { healthy: healthy };function healthy()
 {
-  https.get('http://localhost:9103/interoperability/api/admin/healthcheck', (resp) => {
+  http.get('http://localhost:9103/interoperability/api/admin/healthcheck', (resp) => {
     let data = '';
 
     // A chunk of data has been received.
@@ -12,7 +12,9 @@ module.exports = { healthy: healthy };function healthy()
 
     // The whole response has been received. Print out the result.
     resp.on('end', () => {
-      console.log(data);
+      //var res = JSON.parse(data);
+      //console.log(res);
+      console.log(data)
     });
 
   }).on("error", (err) => {
