@@ -2,7 +2,9 @@ var express = require('express');
 var app = express();
 var fs = require("fs");
 var requestIp = require('request-ip');
+var cors = require('cors');
 
+app.use(cors())
 const {spawn} = require('child_process') // for python
 
 require('./hello')(app);
