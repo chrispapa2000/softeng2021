@@ -7,7 +7,7 @@
 		<meta name="author" content="" />
 		<title>TollTrolls - A Toll Interoperability App</title>
 		<!-- Favicon-->
-		<link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+		<link rel="icon" type="image/x-icon" href="../assets/favicon.png" />
 		<!-- Core theme CSS (includes Bootstrap)-->
 		<link href="../css/styles.css" rel="stylesheet" />
 	</head>
@@ -15,7 +15,7 @@
 		<div class="d-flex" id="wrapper">
 			<!-- Sidebar-->
 			<div class="border-end border-dark bg-dark bg-primary" id="sidebar-wrapper">
-				<div class="sidebar-heading border-bottom border-dark bg-dark text-light">TollTrolls</div>	
+				<div class="sidebar-heading border-bottom border-dark bg-dark text-light"><a class="nav-link text-light" href="../index.html">TollTrolls</a></div>	
 				<div class="list-group list-group-flush">
 					<a class="list-group-item list-group-item-action list-group-item-dark p-3 bg-dark text-light" href="../cost/index.html">Passes Cost</a>
 					<a class="list-group-item list-group-item-action list-group-item-dark p-3 bg-dark text-light" href="">Passes Analysis</a>
@@ -42,27 +42,25 @@
 
 					<form method="post">
 						<h5 class="text-light">Station Operator</h5>
-						<input type="text" id="op1" list="operator1" name="operator1" placeholder="OP1">
-						<datalist id="operator1">
-							<option value="AO">
-							<option value="EG">
-							<option value="GF">
-							<option value="KO">
-							<option value="MR">
-							<option value="NE">
-							<option value="OO">
-						</datalist>
+						<select id="op1">
+							<option value="AO"> AO </option>
+							<option value="EG"> EG </option>
+							<option value="GF"> GF </option>
+							<option value="KO"> KO </option>
+							<option value="MR"> MR </option>
+							<option value="NE"> NE </option>
+							<option value="OO"> OO </option>
+						</select>
 						<h5 class="text-light">Tag Operator</h5>
-						<input list="operator2" id="op2" name="operator2" type="text" placeholder="OP2">
-						<datalist id="operator2">
-							<option value="AO">
-							<option value="EG">
-							<option value="GF">
-							<option value="KO">
-							<option value="MR">
-							<option value="NE">
-							<option value="OO">
-						</datalist>
+						<select id="op2">
+							<option value="AO"> AO </option>
+							<option value="EG"> EG </option>
+							<option value="GF"> GF </option>
+							<option value="KO"> KO </option>
+							<option value="MR"> MR </option>
+							<option value="NE"> NE </option>
+							<option value="OO"> OO </option>
+						</select>
 						<h5 class="text-light">From:</h5>
 						<input type="date" id="date-from" type="text" name="datefrom">
 						<h5 class="text-light">To:</h5>
@@ -72,14 +70,16 @@
 
 					<p id="loading"></p>
 					<p>
+					<p id="download">
+					</p>
 					<table id="table" class="table table-striped table-primary table-active table-dark table-responsive">
-					</table>
+					</table>		
 					</p>
 					<h4 class="mt-2 text-light" id="title"></h4>
 					<p class="mt-2">
 					<table id="passeslist" class="table table-striped table-primary table-active table-dark table-responsive">
 					</table>
-
+					
 					</p>
 				</div>
 			</div>
@@ -88,6 +88,38 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
 		<!-- Core theme JS-->
 		<script src="../js/scripts.js"></script>
+		<script>
+			function htmlToCSV(html, filename) {
+                                var data = [];
+                                var rows = document.querySelectorAll("table tr");
+
+                                for (var i = 0; i < rows.length; i++) {
+                                        var row = [], cols = rows[i].querySelectorAll("td, th");
+
+                                        for (var j = 0; j < cols.length; j++) {
+                                                row.push(cols[j].innerText);
+                                        }
+
+                                        data.push(row.join(","));
+                                }
+
+                                downloadCSVFile(data.join("\n"), filename);
+                        }
+                        function downloadCSVFile(csv, filename) {
+                                var csv_file, download_link;
+                                csv_file = new Blob([csv], {type: "text/csv"});
+                                download_link = document.createElement("a");
+                                download_link.download = filename;
+                                download_link.href = window.URL.createObjectURL(csv_file);
+                                download_link.style.display = "none";
+                                document.body.appendChild(download_link);
+                                download_link.click();
+                        }
+                        function download(table, filename) {
+                                var html = document.querySelector("table").outerHTML;
+                                htmlToCSV(html, "Passes Analysis.csv");
+                        }
+		</script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script type="text/javascript" src="api.js"></script>
 	</body>
