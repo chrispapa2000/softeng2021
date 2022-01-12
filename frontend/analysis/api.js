@@ -10,7 +10,7 @@ $(document).ready(function () {
 		var datefrom = document.getElementById("date-from").value.replaceAll('-', '');
 		var dateto = document.getElementById("date-to").value.replaceAll('-', '');
 		//dateto.replace('-', '');
-		let apistr = "http://localhost:9103/interoperability/api/PassesAnalysis";
+		let apistr = "https://tolltrolls.tk:9103/interoperability/api/PassesAnalysis";
 		// api url
 		const api_url = apistr.concat('/', op1, '/', op2, '/', datefrom, '/', dateto);
 		// Defining async function
@@ -69,6 +69,7 @@ $(document).ready(function () {
 			}
 			document.getElementById("passeslist").innerHTML = passes;
 			document.getElementById("title").innerHTML = "Pass List";
+			document.getElementById("download").innerHTML = '<input value="Export as CSV" type="button" id="download-button" onClick="download()">';
 		}
 
 	})
