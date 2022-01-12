@@ -1,38 +1,33 @@
 {
   "op_id": "OO",
-  "RequestTimestamp": "2022-01-11 17:49:31",
+  "RequestTimestamp": "2022-01-12 11:24:49",
   "PeriodFrom": "2020-01-01 00:00:00",
-  "PeriodTo": "2020-08-01 00:00:00",
+  "PeriodTo": "2020-02-01 00:00:00",
   "PPOList": [
     {
-      "VisitingOperator": "AO",
-      "NumberOfPasses": 37,
-      "PassesCost": 77
-    },
-    {
       "VisitingOperator": "KO",
-      "NumberOfPasses": 39,
-      "PassesCost": 85
+      "NumberOfPasses": 3,
+      "PassesCost": 5
     },
     {
       "VisitingOperator": "GF",
-      "NumberOfPasses": 43,
-      "PassesCost": 89
+      "NumberOfPasses": 6,
+      "PassesCost": 10
     },
     {
       "VisitingOperator": "NE",
-      "NumberOfPasses": 27,
-      "PassesCost": 64
+      "NumberOfPasses": 4,
+      "PassesCost": 10
     },
     {
       "VisitingOperator": "EG",
-      "NumberOfPasses": 31,
-      "PassesCost": 65
+      "NumberOfPasses": 4,
+      "PassesCost": 6
     },
     {
       "VisitingOperator": "MR",
-      "NumberOfPasses": 32,
-      "PassesCost": 73
+      "NumberOfPasses": 2,
+      "PassesCost": 5
     }
   ]
 }

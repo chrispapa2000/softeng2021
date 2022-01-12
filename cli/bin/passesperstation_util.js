@@ -26,7 +26,7 @@ module.exports = { ret: ret };function ret(station, datefrom, dateto, format)
         //write file in csv format
         const createCsvWriter = require('csv-writer').createObjectCsvWriter;
         const csvWriter = createCsvWriter({
-          path: 'out.csv',
+          path: '../responses/passesperstation.csv',
           header: [
             {id: 'PassIndex', title: 'PassIndex'},
             {id: 'PassID', title: 'PassID'},

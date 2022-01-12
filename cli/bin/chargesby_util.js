@@ -16,12 +16,26 @@ module.exports = { ret: ret };function ret(op, datefrom, dateto, format)
       if (format == 'json')
       {
         var res = JSON.parse(data);
-        console.log(res);
+        console.log(res)
 
         //write file in json format
         'use strict';
         const fs = require('fs');
         fs.writeFileSync('../responses/chargesby.json', data);
+
+        //write file in csv format
+        const createCsvWriter = require('csv-writer').createObjectCsvWriter;
+        const csvWriter = createCsvWriter({
+          path: '../responses/chargesby.csv',
+          header: [
+            {id: 'VisitingOperator', title: 'VisitingOperator'},
+            {id: 'NumberOfPasses', title: 'NumberOfPasses'},
+            {id: 'PassesCost', title: 'PassesCost'}
+          ]
+        });
+        csvWriter
+          .writeRecords(res.PPOList)
+          .then(()=> console.log('The CSV file was written successfully'));
       }
       else console.log(data)
     });
