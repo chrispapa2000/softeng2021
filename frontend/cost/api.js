@@ -10,7 +10,7 @@ $(document).ready(function () {
 		var datefrom = document.getElementById("date-from").value.replaceAll('-', '');
 		var dateto = document.getElementById("date-to").value.replaceAll('-', '');
 		//dateto.replace('-', '');
-		let apistr = "https://tolltrolls.tk:9103/interoperability/api/PassesCost";
+		let apistr = "http://tolltrolls.tk:9103/interoperability/api/PassesCost";
 		// api url
 		const api_url = apistr.concat('/', op1, '/', op2, '/', datefrom, '/', dateto);
 		// Defining async function

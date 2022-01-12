@@ -4,10 +4,10 @@ var fs = require("fs");
 var requestIp = require('request-ip');
 var cors = require('cors');
 const https = require('https');
-const options = {
+/*var options = {
 	key: fs.readFileSync('../../ssl.key'),
 	cert: fs.readFileSync('../../ssl.cert')
-};
+};*/
 app.use(cors())
 const {spawn} = require('child_process') // for python
 
@@ -34,12 +34,12 @@ app.get('*', function(request, response){
   response.end("you send an invalid get request")
 })
 
-/*
+
 var server = app.listen(9103, function (req, res) {
   var host = server.address().address
   var port = server.address().port
   console.log("Example app listening at http://%s:%s", host, port)
-})*/
+})
 
-https.createServer(options, app).listen(9103);
+//https.createServer(options, app).listen(9103);
 //http://127.0.0.1:8081/hello
