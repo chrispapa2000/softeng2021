@@ -19,6 +19,9 @@
 
 - Install python mariadb library:
   > pip3 install mariadb
+- Install Apache Server as shown here:
+  https://httpd.apache.org/docs/2.4/install.html
+- Move/Copy the contents of frontend folder in the ~/public_html
  
 
 
