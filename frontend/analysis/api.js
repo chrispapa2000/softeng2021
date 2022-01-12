@@ -20,12 +20,18 @@ $(document).ready(function () {
 			const response = await fetch(url);
 
 			// Storing data in form of JSON
-			var data = await response.json();
-			console.log(data);
-			if (response) {
-				hideloader();
-			}
-			show(data);
+			if (response.ok) {
+                                hideloader();
+
+                                var data = await response.json();
+
+                                console.log(data);
+                                show(data);
+                        }
+                        else if (response.status === 400){
+                                alert("Missing Input");
+                                return response.json().then((errorObj) => setErrors(errorObj));
+                        }
 		}
 		// Calling that async function
 		getapi(api_url);
