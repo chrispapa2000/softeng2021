@@ -5,6 +5,8 @@ import mariadb
 import csv
 
 def main():
+    print("hello");
+    sys.exit(0)
     # proccess given csv file according to database schema
 
     file = open("received/received.csv")

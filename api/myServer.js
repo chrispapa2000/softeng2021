@@ -21,6 +21,48 @@ require('./PassesAnalysis')(app);
 require('./PassesCost')(app);
 require('./ChargesBy')(app);
 
+'use strict';
+const multer = require('multer');
+const csv = require('fast-csv');
+const Router = express.Router;
+const upload = multer({ dest: 'received' });
+const router = new Router();
+
+const bp = require('body-parser')
+app.use(bp.json())
+
+app.use('/handleFile', router);
+router.post('/', upload.single('filename'), function (req, res) {
+  //console.log(req.file);
+  if (req.file == undefined)
+  {
+    return res.status(400).send("problem\n");
+  }
+  const fileRows = [];
+
+  // open uploaded file
+  csv.parseFile(req.file.path)
+    .on("data", function (data) {
+      fileRows.push(data); // push each row
+    })
+    .on("end", function () {
+      //console.log(fileRows)
+      //fs.unlinkSync(req.file.path);   // remove temp file
+      //process "fileRows" and respond
+      //give the file a proper name
+      fs.rename(req.file.path, 'received/new_passes.csv', function(err) {
+          if (err) console.log('ERROR: ' + err);
+      });
+      //call python script to do the dirty job
+      const python = spawn('python3', ['../backend/AddPasses.py']);
+      python.on('close', (code) => {
+        console.log(`child process close all stdio with code ${code}`);
+        if (code === 0){res.send("passes updated succesfully\n")}
+        else {res.send("a problem occurred\n")}
+      })
+    })
+});
+
 
 //catch all incorrect post calls
 app.post('*', function(request, response){
@@ -40,6 +82,7 @@ var server = app.listen(9103, function (req, res) {
   var port = server.address().port
   console.log("Example app listening at http://%s:%s", host, port)
 })
+.on('error', function(err) {console.log(err)});
 
 //https.createServer(options, app).listen(9103);
 //http://127.0.0.1:8081/hello
