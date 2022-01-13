@@ -9,6 +9,10 @@ const resetvehicles = require('./resetvehicles_util.js')
 const resetpasses = require('./resetpasses_util.js')
 const addPasses = require('./addPasses_util.js')
 
+require('yargonaut')
+  .style('blue')
+  .font('Small Slant') // that's it!
+
 require('yargs/yargs')(process.argv.slice(2))
   .command({
     command: 'healthcheck',

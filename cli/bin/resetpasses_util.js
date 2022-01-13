@@ -1,4 +1,5 @@
 const http = require('http');
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 module.exports = { ret: ret };function ret()
 {
