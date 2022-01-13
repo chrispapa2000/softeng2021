@@ -55,6 +55,8 @@ router.post('/', upload.single('file'), function (req, res) {
       });
       //call python script to do the dirty job
       const python = spawn('python3', ['../backend/AddPasses.py']);
+      python.stdout.on('data', (data)=>{console.log(`stdout: ${data}`)})
+      python.stderr.on('data', (data)=>{console.log(`stderr: ${data}`)})
       python.on('close', (code) => {
         console.log(`child process close all stdio with code ${code}`);
         if (code === 0){res.send("passes updated succesfully\n")}
