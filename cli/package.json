@@ -18,6 +18,7 @@
     "csv-parser": "^3.0.0",
     "csv-writer": "^1.6.0",
     "fast-csv": "^4.3.6",
+    "form-data": "^4.0.0",
     "xmlhttprequest": "^1.8.0",
     "yargs": "^17.3.1"
   }

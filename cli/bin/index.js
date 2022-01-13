@@ -7,6 +7,7 @@ const chargesby = require('./chargesby_util.js')
 const resetstations = require('./resetstations_util.js')
 const resetvehicles = require('./resetvehicles_util.js')
 const resetpasses = require('./resetpasses_util.js')
+const addPasses = require('./addPasses_util.js')
 
 require('yargs/yargs')(process.argv.slice(2))
   .command({
@@ -190,7 +191,8 @@ require('yargs/yargs')(process.argv.slice(2))
       }),
     handler: (argv) => {
       //if (typeof(argv.passesupd) != "undefined") console.log(help)
-      console.log('admin, first arguement: ' + argv.passesupd + ', second arguement: ' + argv.source)
+      //console.log('admin, first arguement: ' + argv.passesupd + ', second arguement: ' + argv.source)
+      addPasses.ret(argv.source)
     }
   })
   // provide a minimum demand and a minimum demand message

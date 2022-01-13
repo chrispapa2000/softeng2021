@@ -32,8 +32,8 @@ const bp = require('body-parser')
 app.use(bp.json())
 
 app.use('/handleFile', router);
-router.post('/', upload.single('filename'), function (req, res) {
-  //console.log(req.file);
+router.post('/', upload.single('file'), function (req, res) {
+  //console.log(req);
   if (req.file == undefined)
   {
     return res.status(400).send("problem\n");
