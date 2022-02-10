@@ -36,7 +36,7 @@ router.post('/', upload.single('file'), function (req, res) {
   //console.log(req);
   if (req.file == undefined)
   {
-    return res.status(400).send("problem\n");
+    return res.status(500).send("problem\n");
   }
   const fileRows = [];
 
@@ -68,13 +68,13 @@ router.post('/', upload.single('file'), function (req, res) {
 
 //catch all incorrect post calls
 app.post('*', function(request, response){
-  response.statusCode = 400; //?error statusCode
+  response.statusCode = 500; //?error statusCode
   response.end("you send an invalid post request")
 })
 
 //catch all incorrect get calls
 app.get('*', function(request, response){
-  response.statusCode = 400; //?error statusCode
+  response.statusCode = 500; //?error statusCode
   response.end("you send an invalid get request")
 })
 

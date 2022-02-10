@@ -67,8 +67,9 @@ function fun (request, response) {
       {
         //if python script closed without errors
         //send data to browser
-        response.statusCode = 200; //status ok
         toSend = dataToSend.join("");
+        if (JSON.parse(toSend).NumberOfPasses === 0) response.statusCode = 402;
+        else response.statusCode = 200; //status ok
         if (format === "json")
         {
           response.send(toSend)
