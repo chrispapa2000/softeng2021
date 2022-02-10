@@ -50,6 +50,12 @@ function fun (request, response) {
     if ((typeof format) === "undefined") format = "json";
     //console.log(date1);
     //console.log(date2);
+    //check parameters
+    var ops = new Set(["AO", "OO", "GF", "KO", "EG", "MR", "NE"]);
+    if (!ops.has(op1.substring(0,2))){response.statusCode = 400; response.end(); return;}
+    if (!ops.has(op2.substring(0,2))){response.statusCode = 400; response.end(); return;}
+    if (!ops.has(op1.substring(0,2))){response.statusCode = 400; response.end(); return;}
+    if (format != "json" && format != "csv"){response.statusCode = 400; response.end(); return;}
     //call backend
 
     var dataToSend = [];
@@ -67,8 +73,9 @@ function fun (request, response) {
       {
         //if python script closed without errors
         //send data to browser
-        response.statusCode = 200; //status ok
         toSend = dataToSend.join("")
+        if (JSON.parse(toSend).NumberOfPasses === 0) response.statusCode = 402;
+        else response.statusCode = 200; //status ok
         if (format === "json")
         {
           console.log(toSend);

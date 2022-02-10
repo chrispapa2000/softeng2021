@@ -49,6 +49,9 @@ function fun (request, response) {
     if ((typeof format) === "undefined") format = "json";
     //console.log(date1);
     //console.log(date2);
+    //check parameters
+    var ops = new Set(["AO", "OO", "GF", "KO", "EG", "MR", "NE"]);
+    if (!ops.has(op_id)){response.statusCode = 400; response.end(); return;}
     //call backend
 
     var dataToSend = [];
@@ -66,8 +69,9 @@ function fun (request, response) {
       {
         //if python script closed without errors
         //send data to browser
-        response.statusCode = 200; //status ok
         toSend = dataToSend.join("");
+        if (JSON.parse(toSend).PPOList.length === 0) response.statusCode = 402;
+        else response.statusCode = 200; //status ok
         if (format === "json")
         {
           response.send(toSend)
