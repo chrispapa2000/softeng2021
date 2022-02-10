@@ -1,647 +1,233 @@
 {
-  "Station": "OO01",
-  "StationOperator": "OO",
-  "RequestTimestamp": "2022-01-12 11:18:20",
+  "Station": "AO00",
+  "StationOperator": "AO",
+  "RequestTimestamp": "2022-02-10 11:04:03",
   "PeriodFrom": "2020-01-01 00:00:00",
-  "PeriodTo": "2020-08-01 00:00:00",
-  "NumberOfPasses": 71,
+  "PeriodTo": "2020-03-01 00:00:00",
+  "NumberOfPasses": 25,
   "PassesList": [
     {
       "PassIndex": 1,
-      "PassID": "ADH0486994",
-      "PassTimeStamp": "2020-01-31 08:24:00",
-      "VehicleID": "EC02LZC49528",
-      "TagProvider": "EG",
-      "PassType": "visitor",
+      "PassID": "AHY1239049",
+      "PassTimeStamp": "2020-02-19 16:51:00",
+      "VehicleID": "OC94ASJ72024",
+      "TagProvider": "AO",
+      "PassType": "home",
       "PassCharge": 1.0
     },
     {
       "PassIndex": 2,
-      "PassID": "ADP0053271",
-      "PassTimeStamp": "2020-02-21 15:56:00",
-      "VehicleID": "QR03XCJ37459",
-      "TagProvider": "OO",
-      "PassType": "home",
+      "PassID": "BDX8077094",
+      "PassTimeStamp": "2020-02-03 19:21:00",
+      "VehicleID": "HA82SCK64299",
+      "TagProvider": "MR",
+      "PassType": "visitor",
       "PassCharge": 3.0
     },
     {
       "PassIndex": 3,
-      "PassID": "AEF0827370",
-      "PassTimeStamp": "2020-06-07 17:43:00",
-      "VehicleID": "IC95TLY24827",
-      "TagProvider": "OO",
+      "PassID": "CGE9291092",
+      "PassTimeStamp": "2020-02-27 22:43:00",
+      "VehicleID": "RR73DWB65452",
+      "TagProvider": "AO",
       "PassType": "home",
-      "PassCharge": 2.0
+      "PassCharge": 3.0
     },
     {
       "PassIndex": 4,
-      "PassID": "AFI8384216",
-      "PassTimeStamp": "2020-02-06 18:45:00",
-      "VehicleID": "BK77KNV91142",
-      "TagProvider": "OO",
+      "PassID": "CKX6529510",
+      "PassTimeStamp": "2020-01-05 23:55:00",
+      "VehicleID": "PE73VJU23485",
+      "TagProvider": "AO",
       "PassType": "home",
       "PassCharge": 3.0
     },
     {
       "PassIndex": 5,
-      "PassID": "AFU0546042",
-      "PassTimeStamp": "2020-01-29 18:56:00",
-      "VehicleID": "WG11QVY31890",
-      "TagProvider": "OO",
+      "PassID": "FOP8805584",
+      "PassTimeStamp": "2020-01-28 10:58:00",
+      "VehicleID": "RR73DWB65452",
+      "TagProvider": "AO",
       "PassType": "home",
-      "PassCharge": 1.0
+      "PassCharge": 3.0
     },
     {
       "PassIndex": 6,
-      "PassID": "ALR3930898",
-      "PassTimeStamp": "2020-01-25 12:51:00",
-      "VehicleID": "JF94VYA88954",
-      "TagProvider": "OO",
+      "PassID": "FPV7398094",
+      "PassTimeStamp": "2020-02-13 23:46:00",
+      "VehicleID": "PE73VJU23485",
+      "TagProvider": "AO",
       "PassType": "home",
       "PassCharge": 3.0
     },
     {
       "PassIndex": 7,
-      "PassID": "AOX0025272",
-      "PassTimeStamp": "2020-04-02 20:06:00",
-      "VehicleID": "ED51EWW52190",
-      "TagProvider": "KO",
+      "PassID": "GYV1315886",
+      "PassTimeStamp": "2020-02-29 03:35:00",
+      "VehicleID": "HE38BQH01623",
+      "TagProvider": "MR",
       "PassType": "visitor",
-      "PassCharge": 2.0
-    },
-    {
-      "PassIndex": 8,
-      "PassID": "AVT1455376",
-      "PassTimeStamp": "2020-04-06 05:40:00",
-      "VehicleID": "JF94VYA88954",
-      "TagProvider": "OO",
-      "PassType": "home",
       "PassCharge": 3.0
     },
     {
+      "PassIndex": 8,
+      "PassID": "HNJ2724008",
+      "PassTimeStamp": "2020-02-08 13:34:00",
+      "VehicleID": "YL27IFD65117",
+      "TagProvider": "AO",
+      "PassType": "home",
+      "PassCharge": 2.0
+    },
+    {
       "PassIndex": 9,
-      "PassID": "BPO1564235",
-      "PassTimeStamp": "2020-04-25 17:43:00",
-      "VehicleID": "SL09NOT64494",
-      "TagProvider": "GF",
-      "PassType": "visitor",
+      "PassID": "JNF7720068",
+      "PassTimeStamp": "2020-01-14 15:43:00",
+      "VehicleID": "SY96JDQ97089",
+      "TagProvider": "AO",
+      "PassType": "home",
       "PassCharge": 2.0
     },
     {
       "PassIndex": 10,
-      "PassID": "CAX2242909",
-      "PassTimeStamp": "2020-06-19 14:39:00",
-      "VehicleID": "IC95TLY24827",
-      "TagProvider": "OO",
+      "PassID": "LNP1318383",
+      "PassTimeStamp": "2020-02-01 07:55:00",
+      "VehicleID": "DV04FQL29609",
+      "TagProvider": "AO",
       "PassType": "home",
       "PassCharge": 3.0
     },
     {
       "PassIndex": 11,
-      "PassID": "CJC0097435",
-      "PassTimeStamp": "2020-05-19 19:21:00",
-      "VehicleID": "WY00MLL63827",
-      "TagProvider": "KO",
-      "PassType": "visitor",
-      "PassCharge": 2.0
-    },
-    {
-      "PassIndex": 12,
-      "PassID": "CLJ6910795",
-      "PassTimeStamp": "2020-01-07 01:19:00",
-      "VehicleID": "AT19HLV57173",
-      "TagProvider": "OO",
+      "PassID": "NJI2609774",
+      "PassTimeStamp": "2020-01-12 19:12:00",
+      "VehicleID": "HT62RDI04611",
+      "TagProvider": "AO",
       "PassType": "home",
       "PassCharge": 3.0
     },
     {
-      "PassIndex": 13,
-      "PassID": "CLR6551777",
-      "PassTimeStamp": "2020-01-05 08:24:00",
-      "VehicleID": "XV40HUQ04740",
-      "TagProvider": "OO",
+      "PassIndex": 12,
+      "PassID": "PPW6744269",
+      "PassTimeStamp": "2020-02-25 22:02:00",
+      "VehicleID": "LG64ARC91224",
+      "TagProvider": "AO",
       "PassType": "home",
-      "PassCharge": 1.0
+      "PassCharge": 13.0
+    },
+    {
+      "PassIndex": 13,
+      "PassID": "QMN3591008",
+      "PassTimeStamp": "2020-01-30 11:18:00",
+      "VehicleID": "HT62RDI04611",
+      "TagProvider": "AO",
+      "PassType": "home",
+      "PassCharge": 3.0
     },
     {
       "PassIndex": 14,
-      "PassID": "CSW2140549",
-      "PassTimeStamp": "2020-01-31 19:26:00",
-      "VehicleID": "AY38OQF67603",
-      "TagProvider": "OO",
-      "PassType": "home",
+      "PassID": "RXC1545443",
+      "PassTimeStamp": "2020-01-15 01:57:00",
+      "VehicleID": "HE38BQH01623",
+      "TagProvider": "MR",
+      "PassType": "visitor",
       "PassCharge": 3.0
     },
     {
       "PassIndex": 15,
-      "PassID": "CVY2738641",
-      "PassTimeStamp": "2020-05-31 21:49:00",
-      "VehicleID": "SL09NOT64494",
-      "TagProvider": "GF",
-      "PassType": "visitor",
-      "PassCharge": 1.0
-    },
-    {
-      "PassIndex": 16,
-      "PassID": "DUL4656867",
-      "PassTimeStamp": "2020-07-23 17:17:00",
-      "VehicleID": "VJ92OYV94295",
+      "PassID": "SUM5157958",
+      "PassTimeStamp": "2020-01-03 14:48:00",
+      "VehicleID": "XV40HUQ04740",
       "TagProvider": "OO",
-      "PassType": "home",
+      "PassType": "visitor",
       "PassCharge": 3.0
     },
     {
-      "PassIndex": 17,
-      "PassID": "DWS0050476",
-      "PassTimeStamp": "2020-02-16 11:36:00",
-      "VehicleID": "VJ92OYV94295",
-      "TagProvider": "OO",
+      "PassIndex": 16,
+      "PassID": "UGX8037007",
+      "PassTimeStamp": "2020-02-08 14:46:00",
+      "VehicleID": "YL27IFD65117",
+      "TagProvider": "AO",
       "PassType": "home",
+      "PassCharge": 2.0
+    },
+    {
+      "PassIndex": 17,
+      "PassID": "UPZ8966863",
+      "PassTimeStamp": "2020-02-26 13:29:00",
+      "VehicleID": "CP56DAO45598",
+      "TagProvider": "GF",
+      "PassType": "visitor",
       "PassCharge": 3.0
     },
     {
       "PassIndex": 18,
-      "PassID": "DYF4196763",
-      "PassTimeStamp": "2020-06-20 04:04:00",
-      "VehicleID": "RK48BOP88344",
-      "TagProvider": "OO",
+      "PassID": "VDX5272249",
+      "PassTimeStamp": "2020-01-18 02:00:00",
+      "VehicleID": "YL27IFD65117",
+      "TagProvider": "AO",
       "PassType": "home",
-      "PassCharge": 3.0
+      "PassCharge": 2.0
     },
     {
       "PassIndex": 19,
-      "PassID": "EJT1725957",
-      "PassTimeStamp": "2020-02-01 09:32:00",
-      "VehicleID": "VJ92OYV94295",
-      "TagProvider": "OO",
+      "PassID": "WZZ9228651",
+      "PassTimeStamp": "2020-01-02 20:44:00",
+      "VehicleID": "MX39VOS38645",
+      "TagProvider": "AO",
       "PassType": "home",
       "PassCharge": 3.0
     },
     {
       "PassIndex": 20,
-      "PassID": "FES0315881",
-      "PassTimeStamp": "2020-04-04 11:54:00",
-      "VehicleID": "QX75YWC61835",
-      "TagProvider": "OO",
+      "PassID": "XPY5131291",
+      "PassTimeStamp": "2020-01-23 20:09:00",
+      "VehicleID": "BM25PHF40639",
+      "TagProvider": "AO",
       "PassType": "home",
-      "PassCharge": 3.0
+      "PassCharge": 13.0
     },
     {
       "PassIndex": 21,
-      "PassID": "FKG7517614",
-      "PassTimeStamp": "2020-03-15 19:52:00",
-      "VehicleID": "AT19HLV57173",
+      "PassID": "XRV2891190",
+      "PassTimeStamp": "2020-01-10 10:18:00",
+      "VehicleID": "QX75YWC61835",
       "TagProvider": "OO",
-      "PassType": "home",
+      "PassType": "visitor",
       "PassCharge": 3.0
     },
     {
       "PassIndex": 22,
-      "PassID": "FOQ9596897",
-      "PassTimeStamp": "2020-07-13 05:04:00",
-      "VehicleID": "EE22TMX10817",
-      "TagProvider": "OO",
+      "PassID": "XWC3725190",
+      "PassTimeStamp": "2020-02-23 14:00:00",
+      "VehicleID": "YL27IFD65117",
+      "TagProvider": "AO",
       "PassType": "home",
       "PassCharge": 2.0
     },
     {
       "PassIndex": 23,
-      "PassID": "FUA9582667",
-      "PassTimeStamp": "2020-07-06 02:39:00",
-      "VehicleID": "XV40HUQ04740",
-      "TagProvider": "OO",
+      "PassID": "YSR7827836",
+      "PassTimeStamp": "2020-02-16 03:22:00",
+      "VehicleID": "LG64ARC91224",
+      "TagProvider": "AO",
       "PassType": "home",
-      "PassCharge": 1.0
+      "PassCharge": 13.0
     },
     {
       "PassIndex": 24,
-      "PassID": "HJS6047053",
-      "PassTimeStamp": "2020-02-29 18:32:00",
-      "VehicleID": "AY38OQF67603",
+      "PassID": "ZDJ4463420",
+      "PassTimeStamp": "2020-01-17 12:54:00",
+      "VehicleID": "AT19HLV57173",
       "TagProvider": "OO",
-      "PassType": "home",
+      "PassType": "visitor",
       "PassCharge": 3.0
     },
     {
       "PassIndex": 25,
-      "PassID": "IAW0698993",
-      "PassTimeStamp": "2020-03-03 10:07:00",
-      "VehicleID": "VJ92OYV94295",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 26,
-      "PassID": "IHE0868376",
-      "PassTimeStamp": "2020-02-14 23:39:00",
-      "VehicleID": "QR03XCJ37459",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 27,
-      "PassID": "JAH6240490",
-      "PassTimeStamp": "2020-06-08 21:39:00",
-      "VehicleID": "EM54HQI58682",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 28,
-      "PassID": "JJR4731541",
-      "PassTimeStamp": "2020-02-17 01:48:00",
-      "VehicleID": "BK77KNV91142",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 29,
-      "PassID": "KKY4632384",
-      "PassTimeStamp": "2020-05-23 15:37:00",
-      "VehicleID": "RK48BOP88344",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 2.0
-    },
-    {
-      "PassIndex": 30,
-      "PassID": "KNH1621520",
-      "PassTimeStamp": "2020-02-24 02:29:00",
-      "VehicleID": "VJ92OYV94295",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 31,
-      "PassID": "KNR3557639",
-      "PassTimeStamp": "2020-03-08 03:25:00",
-      "VehicleID": "IC95TLY24827",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 2.0
-    },
-    {
-      "PassIndex": 32,
-      "PassID": "KTL5515380",
-      "PassTimeStamp": "2020-06-04 11:22:00",
-      "VehicleID": "IZ65WAT29135",
-      "TagProvider": "MR",
-      "PassType": "visitor",
-      "PassCharge": 2.0
-    },
-    {
-      "PassIndex": 33,
-      "PassID": "LFN9032551",
-      "PassTimeStamp": "2020-05-05 10:36:00",
-      "VehicleID": "AY38OQF67603",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 1.0
-    },
-    {
-      "PassIndex": 34,
-      "PassID": "MVE5516887",
-      "PassTimeStamp": "2020-06-25 03:31:00",
-      "VehicleID": "IC95TLY24827",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 2.0
-    },
-    {
-      "PassIndex": 35,
-      "PassID": "NIW4344641",
-      "PassTimeStamp": "2020-04-14 02:13:00",
-      "VehicleID": "RK48BOP88344",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 36,
-      "PassID": "NRR6592395",
-      "PassTimeStamp": "2020-06-30 14:04:00",
-      "VehicleID": "ED51EWW52190",
-      "TagProvider": "KO",
-      "PassType": "visitor",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 37,
-      "PassID": "NYV4373701",
-      "PassTimeStamp": "2020-03-09 11:28:00",
-      "VehicleID": "RK48BOP88344",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 38,
-      "PassID": "NYY7798542",
-      "PassTimeStamp": "2020-04-10 18:27:00",
-      "VehicleID": "AY38OQF67603",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 39,
-      "PassID": "ONJ9696939",
-      "PassTimeStamp": "2020-07-25 05:12:00",
-      "VehicleID": "CM15YCB60994",
-      "TagProvider": "EG",
-      "PassType": "visitor",
-      "PassCharge": 1.0
-    },
-    {
-      "PassIndex": 40,
-      "PassID": "OVE2193238",
-      "PassTimeStamp": "2020-01-19 01:45:00",
-      "VehicleID": "QR03XCJ37459",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 41,
-      "PassID": "OZL6155142",
-      "PassTimeStamp": "2020-01-17 10:38:00",
-      "VehicleID": "VJ92OYV94295",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 42,
-      "PassID": "PKD3869762",
-      "PassTimeStamp": "2020-01-10 06:56:00",
-      "VehicleID": "IC95TLY24827",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 2.0
-    },
-    {
-      "PassIndex": 43,
-      "PassID": "POE7666030",
-      "PassTimeStamp": "2020-05-16 19:15:00",
-      "VehicleID": "QX75YWC61835",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 44,
-      "PassID": "PVP4373092",
-      "PassTimeStamp": "2020-05-04 09:07:00",
+      "PassID": "ZZZ1111111",
+      "PassTimeStamp": "2020-01-01 01:01:00",
       "VehicleID": "AT19HLV57173",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 45,
-      "PassID": "QNY2601493",
-      "PassTimeStamp": "2020-07-16 12:57:00",
-      "VehicleID": "EM54HQI58682",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 46,
-      "PassID": "QQH0525418",
-      "PassTimeStamp": "2020-04-19 02:23:00",
-      "VehicleID": "VJ92OYV94295",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 2.0
-    },
-    {
-      "PassIndex": 47,
-      "PassID": "RPJ5269084",
-      "PassTimeStamp": "2020-06-19 08:38:00",
-      "VehicleID": "LC72NRN52084",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 48,
-      "PassID": "SCH8252114",
-      "PassTimeStamp": "2020-02-26 10:31:00",
-      "VehicleID": "JF94VYA88954",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 49,
-      "PassID": "TFL5442703",
-      "PassTimeStamp": "2020-04-04 10:57:00",
-      "VehicleID": "AT19HLV57173",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 50,
-      "PassID": "TJF1889392",
-      "PassTimeStamp": "2020-06-15 05:52:00",
-      "VehicleID": "EE22TMX10817",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 2.0
-    },
-    {
-      "PassIndex": 51,
-      "PassID": "TZM6627387",
-      "PassTimeStamp": "2020-07-13 21:46:00",
-      "VehicleID": "LC72NRN52084",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 52,
-      "PassID": "UFI4581343",
-      "PassTimeStamp": "2020-03-27 19:56:00",
-      "VehicleID": "ZY93PCY41868",
-      "TagProvider": "KO",
-      "PassType": "visitor",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 53,
-      "PassID": "UHI8948155",
-      "PassTimeStamp": "2020-03-17 17:35:00",
-      "VehicleID": "AY38OQF67603",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 54,
-      "PassID": "UUQ4945107",
-      "PassTimeStamp": "2020-06-23 06:31:00",
-      "VehicleID": "QX75YWC61835",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 55,
-      "PassID": "VBF5925977",
-      "PassTimeStamp": "2020-06-01 01:36:00",
-      "VehicleID": "EM54HQI58682",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 56,
-      "PassID": "VCX7766368",
-      "PassTimeStamp": "2020-02-22 02:48:00",
-      "VehicleID": "VJ92OYV94295",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 57,
-      "PassID": "VGQ7846051",
-      "PassTimeStamp": "2020-03-01 17:29:00",
-      "VehicleID": "AT19HLV57173",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 58,
-      "PassID": "VPY8067421",
-      "PassTimeStamp": "2020-05-07 04:21:00",
-      "VehicleID": "WG11QVY31890",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 1.0
-    },
-    {
-      "PassIndex": 59,
-      "PassID": "VSR8218652",
-      "PassTimeStamp": "2020-03-20 20:36:00",
-      "VehicleID": "TE24LCO18661",
-      "TagProvider": "EG",
-      "PassType": "visitor",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 60,
-      "PassID": "VYP6805866",
-      "PassTimeStamp": "2020-02-21 04:33:00",
-      "VehicleID": "AT19HLV57173",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 61,
-      "PassID": "VZQ0731362",
-      "PassTimeStamp": "2020-04-02 18:26:00",
-      "VehicleID": "EE22TMX10817",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 2.0
-    },
-    {
-      "PassIndex": 62,
-      "PassID": "WCE8376292",
-      "PassTimeStamp": "2020-04-30 15:55:00",
-      "VehicleID": "WG11QVY31890",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 1.0
-    },
-    {
-      "PassIndex": 63,
-      "PassID": "WSV6589950",
-      "PassTimeStamp": "2020-03-13 17:24:00",
-      "VehicleID": "WU78BMX13511",
-      "TagProvider": "GF",
-      "PassType": "visitor",
-      "PassCharge": 1.0
-    },
-    {
-      "PassIndex": 64,
-      "PassID": "XSH7771389",
-      "PassTimeStamp": "2020-03-16 17:11:00",
-      "VehicleID": "VJ92OYV94295",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 65,
-      "PassID": "XSV8325893",
-      "PassTimeStamp": "2020-04-11 16:49:00",
-      "VehicleID": "JF94VYA88954",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 66,
-      "PassID": "YIR8608449",
-      "PassTimeStamp": "2020-05-19 04:59:00",
-      "VehicleID": "DW44ZOO26361",
-      "TagProvider": "EG",
-      "PassType": "visitor",
-      "PassCharge": 2.0
-    },
-    {
-      "PassIndex": 67,
-      "PassID": "YQN5210012",
-      "PassTimeStamp": "2020-03-25 01:31:00",
-      "VehicleID": "QX75YWC61835",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 68,
-      "PassID": "ZOE3674020",
-      "PassTimeStamp": "2020-07-23 01:03:00",
-      "VehicleID": "RK48BOP88344",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 69,
-      "PassID": "ZUB1357435",
-      "PassTimeStamp": "2020-04-05 15:04:00",
-      "VehicleID": "QR03XCJ37459",
-      "TagProvider": "OO",
-      "PassType": "home",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 70,
-      "PassID": "ZUS7027520",
-      "PassTimeStamp": "2020-01-18 15:16:00",
-      "VehicleID": "QP02SYE47964",
-      "TagProvider": "NE",
-      "PassType": "visitor",
-      "PassCharge": 3.0
-    },
-    {
-      "PassIndex": 71,
-      "PassID": "ZZT4440375",
-      "PassTimeStamp": "2020-05-16 22:49:00",
-      "VehicleID": "JF94VYA88954",
-      "TagProvider": "OO",
+      "TagProvider": "AO",
       "PassType": "home",
       "PassCharge": 3.0
     }
