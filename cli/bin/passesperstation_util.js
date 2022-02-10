@@ -2,7 +2,7 @@ const http = require('http');
 
 module.exports = { ret: ret };function ret(station, datefrom, dateto, format)
 {
-  http.get('http://localhost:9103/interoperability/api/passesperstation/'+station+'/'+datefrom+'/'+dateto+'/?format='+format, (resp) => {
+  http.get('http://localhost:9103/interoperability/api/passesperstation/'+station+'/'+datefrom+'/'+dateto+'/?format=json', (resp) => {
     let data = '';
 
     // A chunk of data has been received.
@@ -22,7 +22,11 @@ module.exports = { ret: ret };function ret(station, datefrom, dateto, format)
         'use strict';
         const fs = require('fs');
         fs.writeFileSync('../responses/passesperstation.json', data);
-
+        console.log('Json file saved Successfully')
+      }
+      else
+      {
+        var res = JSON.parse(data);
         //write file in csv format
         const createCsvWriter = require('csv-writer').createObjectCsvWriter;
         const csvWriter = createCsvWriter({
@@ -42,7 +46,6 @@ module.exports = { ret: ret };function ret(station, datefrom, dateto, format)
           .writeRecords(res.PassesList)
           .then(()=> console.log('The CSV file was written successfully'));
       }
-      else console.log(data)
     });
 
   }).on("error", (err) => {

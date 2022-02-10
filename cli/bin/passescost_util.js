@@ -2,9 +2,8 @@ const http = require('http');
 
 module.exports = { ret: ret };function ret(op1, op2, datefrom, dateto, format)
 {
-  http.get('http://localhost:9103/interoperability/api/passescost/'+op1+'/'+op2+'/'+datefrom+'/'+dateto+'/?format='+format, (resp) => {
+  http.get('http://localhost:9103/interoperability/api/passescost/'+op1+'/'+op2+'/'+datefrom+'/'+dateto+'/?format=json', (resp) => {
     let data = '';
-
     // A chunk of data has been received.
     resp.on('data', (chunk) => {
       data += chunk;
@@ -16,13 +15,16 @@ module.exports = { ret: ret };function ret(op1, op2, datefrom, dateto, format)
       if (format == 'json')
       {
         var res = JSON.parse(data);
-        console.log(res)
+        //console.log(res)
 
         //write file in json format
         'use strict';
         const fs = require('fs');
         fs.writeFileSync('../responses/passescost.json', data);
-
+        console.log('Json file saved successfully');
+      }
+      else {
+        var res = JSON.parse(data);
         //write file in csv format
         const createCsvWriter = require('csv-writer').createObjectCsvWriter;
         const csvWriter = createCsvWriter({
@@ -39,9 +41,8 @@ module.exports = { ret: ret };function ret(op1, op2, datefrom, dateto, format)
         });
         csvWriter
           .writeRecords([res])
-          .then(()=> console.log('The CSV file was written successfully'));
+          .then(()=> console.log('CSV file saved successfully'));
       }
-      else console.log(data)
     });
   }).on("error", (err) => {
     console.log("Error: " + err.message);
