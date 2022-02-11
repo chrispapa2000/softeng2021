@@ -10,7 +10,7 @@ $(document).ready(function () {
 		var datefrom = document.getElementById("date-from").value.replaceAll('-', '');
 		var dateto = document.getElementById("date-to").value.replaceAll('-', '');
 		//dateto.replace('-', '');
-		let apistr = "https://tolltrolls.tk:9103/interoperability/api/PassesCost";
+		let apistr = "localhost:9103/interoperability/api/PassesCost";
 		// api url
 		const api_url = apistr.concat('/', op1, '/', op2, '/', datefrom, '/', dateto);
 		// Defining async function
@@ -60,8 +60,8 @@ $(document).ready(function () {
 			});
 			table_str += `</tr>`;
 			document.getElementById("table").innerHTML = table_str;
-			var content = `Table Explanation: <p> Total cost of Passes with operator's  <b>` + data['op2_ID'] + `</b> tag on Station Operator <b>` +
-				data['op1_ID'] + `</b> is <b>` + data['PassesCost'] + `\u20AC` + `</b>.</p>`;
+			var content = `Table Explanation: <p> Total cost of Passes with operator's  <b>` + data['op2_ID'] + `</b> tag on operator's <b>` +
+				data['op1_ID'] + `</b> stations is <b>` + data['PassesCost'] + `\u20AC` + `</b>.</p>`;
 			document.getElementById("download").innerHTML = '<input value="Export as CSV" type="button" id="download-button" onClick="download()">';
 			document.getElementById("explanation").innerHTML = content;
 		}
