@@ -52,9 +52,7 @@ function fun (request, response) {
     //console.log(date2);
     //check parameters
     var ops = new Set(["AO", "OO", "GF", "KO", "EG", "MR", "NE"]);
-    if (!ops.has(op1.substring(0,2))){response.statusCode = 400; response.end(); return;}
-    if (!ops.has(op2.substring(0,2))){response.statusCode = 400; response.end(); return;}
-    if (!ops.has(op1.substring(0,2))){response.statusCode = 400; response.end(); return;}
+    if (!ops.has(s_id.substring(0,2))){response.statusCode = 400; response.end(); return;}
     if (format != "json" && format != "csv"){response.statusCode = 400; response.end(); return;}
 
     // call backend

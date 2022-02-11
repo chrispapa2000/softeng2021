@@ -69,13 +69,13 @@ router.post('/', upload.single('file'), function (req, res) {
 //catch all incorrect post calls
 app.post('*', function(request, response){
   response.statusCode = 500; //?error statusCode
-  response.end("you send an invalid post request")
+  response.end("you sent an invalid post request")
 })
 
 //catch all incorrect get calls
 app.get('*', function(request, response){
   response.statusCode = 500; //?error statusCode
-  response.end("you send an invalid get request")
+  response.end("you sent an invalid get request")
 })
 
 
