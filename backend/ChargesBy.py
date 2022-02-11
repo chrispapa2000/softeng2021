@@ -56,7 +56,7 @@ def main():
         d2 = dict()
         d2["VisitingOperator"] = comp
         d2["NumberOfPasses"] = len(result)
-        d2["PassesCost"] = round(sum, 1)
+        d2["PassesCost"] = round(sum, 2)
         PPOList.append(d2)
 
 
