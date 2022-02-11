@@ -44,7 +44,7 @@ def main():
     datefrom += " 00:00:00"
     dateto += " 00:00:00"
     for entry in result:
-        totalcost += float(entry[0])
+        totalcost += entry[0]
     json_data = {"op1_ID": op1, "op2_ID": op2, "RequestTimestamp": current_date.strftime("%d-%m-%Y %H:%M:%S"), "PeriodFrom": datefrom, "PeriodTo": dateto, "NumberOfPasses": number_of_passes, "PassesCost": totalcost}
     json_formatted_str = json.dumps(json_data, indent=2)
     print(json_formatted_str)
