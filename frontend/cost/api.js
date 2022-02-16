@@ -22,9 +22,9 @@ $(document).ready(function () {
 			// Storing data in form of JSON
 			if (response.ok) {
 				hideloader();
-				
+
 				var data = await response.json();
-				
+
 				console.log(data);
 				show(data);
 			}
@@ -43,7 +43,7 @@ $(document).ready(function () {
 		// Function to define innerHTML for HTML table
 		function show(data) {
 			// Setting innerHTML as tab variable
-	
+
 			alert("Request Succesful");
 			var table_str = `<tr>
 				<th>Station Operator</th>
@@ -60,11 +60,13 @@ $(document).ready(function () {
 			});
 			table_str += `</tr>`;
 			document.getElementById("table").innerHTML = table_str;
-			var content = `Table Explanation: <p> Tag Operator <b>` + data['op2_ID'] + `</b> owes Station Operator <b>` +
-				data['op1_ID'] + `</b> a total amount of <b>` + data['PassesCost'] + `\u20AC` + `</b>.</p>`;
+			var content = `Table Explanation: <p> Total cost of Passes with operator's  <b>` + data['op2_ID'] + `</b> tag on operator's <b>` +
+				data['op1_ID'] + `</b> stations is <b>` + data['PassesCost'] + `\u20AC` + `</b>.</p>`;
 			document.getElementById("download").innerHTML = '<input value="Export as CSV" type="button" id="download-button" onClick="download()">';
 			document.getElementById("explanation").innerHTML = content;
 		}
+
+
 
 	})
 
