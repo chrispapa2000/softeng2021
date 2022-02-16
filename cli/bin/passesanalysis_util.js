@@ -1,4 +1,4 @@
-const http = require('http');
+const http = require('http')
 
 module.exports = { ret: ret };function ret(op1, op2, datefrom, dateto, format)
 {
