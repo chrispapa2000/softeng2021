@@ -21,16 +21,17 @@ module.exports = { ret: ret };function ret(op1, op2, datefrom, dateto, format)
         //write file in json format
         'use strict';
         const fs = require('fs');
-        fs.writeFileSync('../responses/passesanalysis.json', data);
+        fs.writeFileSync('passesanalysis.json', data);
         console.log('Json file saved successfully')
       }
       else {
         //console.log(data)
+        if (data == '') {console.log('No data was returned'); return;}
         var res = JSON.parse(data);
         //write file in csv format
         const createCsvWriter = require('csv-writer').createObjectCsvWriter;
         const csvWriter = createCsvWriter({
-          path: '../responses/passesanalysis.csv',
+          path: 'passesanalysis.csv',
           header: [
             {id: 'PassIndex', title: 'PassIndex'},
             {id: 'PassID', title: 'PassID'},
