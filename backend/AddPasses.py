@@ -126,12 +126,12 @@ def main():
         sys.exit(1)
 
     csvreader = csv.reader(file)
-    for row in csvreader:
+    dataset = list(csvreader)
+    for row in dataset:
         if (row[0] in pass_keys):
             print("duplicate primary key error")
             exit(1)
 
-    dataset = list(csvreader)
     statement = "INSERT INTO Pass (Pass_id, Timestamp, vehicleVehicle_ref, stationStation_id, companyCompany_abbr) VALUES (%s, %s, %s, %s, %s)"
     cur.executemany(statement, dataset)
     conn.commit()
