@@ -55,7 +55,7 @@ def main():
         d2["StationID"] = entry[3]
         d2["TimeStamp"] = str_time
         d2["VehicleID"] = entry[2]
-        d2["Charge"] = charge_amount
+        d2["Charge"] = round(charge_amount, 2)
         PassesList.append(d2)
         i += 1
 
