@@ -1,0 +1,1065 @@
+{
+	"info": {
+		"_postman_id": "629c26b3-39dd-4a73-9be6-98b897269f7c",
+		"name": "SoftEng 2021-2022 requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Healthcheck",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"check that the connection is OK\", function () {",
+							"    var jsonData = pm.response;",
+							"    pm.expect(jsonData.status).to.eql(\"OK\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9103/interoperability/api/admin/healthcheck",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9103",
+					"path": [
+						"interoperability",
+						"api",
+						"admin",
+						"healthcheck"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Healthcheck example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9103/interoperability/api/admin/healthcheck",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9103",
+							"path": [
+								"interoperability",
+								"api",
+								"admin",
+								"healthcheck"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 18 Feb 2022 15:19:55 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						},
+						{
+							"key": "Content-Length",
+							"value": "77"
+						}
+					],
+					"cookie": [],
+					"body": "{\"status\":\"OK\", \"dbconnection\":<mariadb.connection object at 0x7f3fe5a9cb40>}"
+				}
+			]
+		},
+		{
+			"name": "Invalid Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 500\", function () {",
+							"    pm.response.to.have.status(500);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9103/interoperability/api/admin/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9103",
+					"path": [
+						"interoperability",
+						"api",
+						"admin",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Invalid Request Example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9103/interoperability/api/admin/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9103",
+							"path": [
+								"interoperability",
+								"api",
+								"admin",
+								""
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 18 Feb 2022 15:20:36 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						},
+						{
+							"key": "Content-Length",
+							"value": "31"
+						}
+					],
+					"cookie": [],
+					"body": "you sent an invalid get request"
+				}
+			]
+		},
+		{
+			"name": "PassesPerStation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Check Station Name\", function () {",
+							"    pm.variables.get(\"variable_key\");",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.Station).to.eql(\"KO01\");",
+							"});",
+							"pm.test(\"Check Station Operator\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.StationOperator).to.eql(\"KO\");",
+							"});",
+							"pm.test(\"Check PeriodFrom\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.PeriodFrom).to.eql(\"2019-01-01 00:00:00\");",
+							"});",
+							"pm.test(\"Check PeriodTo\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.PeriodTo).to.eql(\"2019-01-02 00:00:00\");",
+							"});",
+							"pm.test(\"Check Number of Passes\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.NumberOfPasses).to.eql(1);",
+							"});",
+							"pm.test(\"Check Passcharge\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    var mylist = jsonData.PassesList;",
+							"    pm.expect(mylist[0].PassCharge).to.eql(2.8);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9103/interoperability/api/PassesPerStation/KO01/20190101/20190102",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9103",
+					"path": [
+						"interoperability",
+						"api",
+						"PassesPerStation",
+						"KO01",
+						"20190101",
+						"20190102"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "PassesPerStation Example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9103/interoperability/api/PassesPerStation/KO01/20190101/20190102",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9103",
+							"path": [
+								"interoperability",
+								"api",
+								"PassesPerStation",
+								"KO01",
+								"20190101",
+								"20190102"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "440"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1b8-r0VXigJKH1qGBJo8U5fCY5aP+zc\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 18 Feb 2022 15:21:06 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"Station\": \"KO01\",\n  \"StationOperator\": \"KO\",\n  \"RequestTimestamp\": \"2022-02-18 17:21:06\",\n  \"PeriodFrom\": \"2019-01-01 00:00:00\",\n  \"PeriodTo\": \"2019-01-02 00:00:00\",\n  \"NumberOfPasses\": 1,\n  \"PassesList\": [\n    {\n      \"PassIndex\": 1,\n      \"PassID\": \"WSI3219904\",\n      \"PassTimeStamp\": \"2019-01-01 01:33:00\",\n      \"VehicleID\": \"ED51EWW52190\",\n      \"TagProvider\": \"KO\",\n      \"PassType\": \"home\",\n      \"PassCharge\": 2.8\n    }\n  ]\n}\n"
+				}
+			]
+		},
+		{
+			"name": "PassesCost",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Check Operator 1\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.op1_ID).to.eql(\"AO\");",
+							"});",
+							"pm.test(\"Check Operator 2\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.op2_ID).to.eql(\"OO\");",
+							"});",
+							"pm.test(\"Check PeriodFrom\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.PeriodFrom).to.eql(\"2020-10-01 00:00:00\");",
+							"});",
+							"pm.test(\"Check PeriodFrom\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.PeriodTo).to.eql(\"2020-11-01 00:00:00\");",
+							"});",
+							"pm.test(\"Check Passes Cost\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.PassesCost).to.eql(39.20);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9103/interoperability/api/PassesCost/AO/OO/20201001/20201101",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9103",
+					"path": [
+						"interoperability",
+						"api",
+						"PassesCost",
+						"AO",
+						"OO",
+						"20201001",
+						"20201101"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "PassesCost Example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9103/interoperability/api/PassesCost/AO/OO/20201001/20201101",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9103",
+							"path": [
+								"interoperability",
+								"api",
+								"PassesCost",
+								"AO",
+								"OO",
+								"20201001",
+								"20201101"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "206"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ce-NMdtlQUhj1dSqUwOiF3MJJ7WC9k\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 18 Feb 2022 15:21:29 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"op1_ID\": \"AO\",\n  \"op2_ID\": \"OO\",\n  \"RequestTimestamp\": \"18-02-2022 17:21:29\",\n  \"PeriodFrom\": \"2020-10-01 00:00:00\",\n  \"PeriodTo\": \"2020-11-01 00:00:00\",\n  \"NumberOfPasses\": 14,\n  \"PassesCost\": 39.2\n}\n"
+				}
+			]
+		},
+		{
+			"name": "ChargesBy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Check Operator ID\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.op_id).to.eql(\"AO\");",
+							"});",
+							"pm.test(\"Check PeriodFrom\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.PeriodFrom).to.eql(\"2021-05-01 00:00:00\");",
+							"});",
+							"pm.test(\"Check PeriodTo\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.PeriodTo).to.eql(\"2021-06-01 00:00:00\");",
+							"});",
+							"pm.test(\"Check All Costs\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    var List = jsonData.PPOList",
+							"    for (let i = 0; i < 6; i++)",
+							"    {",
+							"        if(List[i].VisitingOperator == \"EG\")",
+							"        {",
+							"            pm.expect(List[i].PassesCost).to.eql(17.45);",
+							"        }",
+							"        else if(List[i].VisitingOperator == \"GF\")",
+							"        {",
+							"            pm.expect(List[i].PassesCost).to.eql(22.40);",
+							"        }",
+							"        else if(List[i].VisitingOperator == \"NE\")",
+							"        {",
+							"            pm.expect(List[i].PassesCost).to.eql(0.80);",
+							"        }",
+							"        else if(List[i].VisitingOperator == \"KO\")",
+							"        {",
+							"            pm.expect(List[i].PassesCost).to.eql(19.60);",
+							"        }",
+							"        else if(List[i].VisitingOperator == \"MR\")",
+							"        {",
+							"            pm.expect(List[i].PassesCost).to.eql(6.20);",
+							"        }",
+							"        else if(List[i].VisitingOperator == \"OO\")",
+							"        {",
+							"            pm.expect(List[i].PassesCost).to.eql(15.60);",
+							"        }",
+							"    }",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9103/interoperability/api/chargesby/AO/20210501/20210601",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9103",
+					"path": [
+						"interoperability",
+						"api",
+						"chargesby",
+						"AO",
+						"20210501",
+						"20210601"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ChargesBy Example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9103/interoperability/api/chargesby/AO/20210501/20210601",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9103",
+							"path": [
+								"interoperability",
+								"api",
+								"chargesby",
+								"AO",
+								"20210501",
+								"20210601"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "741"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2e5-pvJFlJriLNtXMewPgsGJmCvLYGA\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 18 Feb 2022 15:21:50 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"op_id\": \"AO\",\n  \"RequestTimestamp\": \"2022-02-18 17:21:48\",\n  \"PeriodFrom\": \"2021-05-01 00:00:00\",\n  \"PeriodTo\": \"2021-06-01 00:00:00\",\n  \"PPOList\": [\n    {\n      \"VisitingOperator\": \"EG\",\n      \"NumberOfPasses\": 9,\n      \"PassesCost\": 17.45\n    },\n    {\n      \"VisitingOperator\": \"GF\",\n      \"NumberOfPasses\": 8,\n      \"PassesCost\": 22.4\n    },\n    {\n      \"VisitingOperator\": \"KO\",\n      \"NumberOfPasses\": 7,\n      \"PassesCost\": 19.6\n    },\n    {\n      \"VisitingOperator\": \"MR\",\n      \"NumberOfPasses\": 6,\n      \"PassesCost\": 6.2\n    },\n    {\n      \"VisitingOperator\": \"NE\",\n      \"NumberOfPasses\": 6,\n      \"PassesCost\": 0.8\n    },\n    {\n      \"VisitingOperator\": \"OO\",\n      \"NumberOfPasses\": 9,\n      \"PassesCost\": 15.6\n    }\n  ]\n}\n"
+				}
+			]
+		},
+		{
+			"name": "No Data Returned",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 402\", function () {",
+							"    pm.response.to.have.status(402);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9103/interoperability/api/PassesAnalysis/AO/OO/20200101/20200102",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9103",
+					"path": [
+						"interoperability",
+						"api",
+						"PassesAnalysis",
+						"AO",
+						"OO",
+						"20200101",
+						"20200102"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "No Data Returned Example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9103/interoperability/api/PassesAnalysis/AO/OO/20200101/20200102",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9103",
+							"path": [
+								"interoperability",
+								"api",
+								"PassesAnalysis",
+								"AO",
+								"OO",
+								"20200101",
+								"20200102"
+							]
+						}
+					},
+					"status": "Payment Required",
+					"code": 402,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "203"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"cb-zf4M8zylmq3XyI6lIb16z+0xxes\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 18 Feb 2022 15:22:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"op1_ID\": \"AO\",\n  \"op2_ID\": \"OO\",\n  \"RequestTimestamp\": \"2022-02-18 17:22:14\",\n  \"PeriodFrom\": \"2020-01-01 00:00:00\",\n  \"PeriodTo\": \"2020-01-02 00:00:00\",\n  \"NumberOfPasses\": 0,\n  \"PassesList\": []\n}\n"
+				}
+			]
+		},
+		{
+			"name": "PassesAnalysis",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Check Number of Passes\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.NumberOfPasses).to.eql(3);",
+							"});",
+							"pm.test(\"Check Pass Charge\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    var mylist = jsonData.PassesList;",
+							"    pm.expect(mylist[0].Charge).to.eql(2.8);",
+							"    pm.expect(mylist[1].Charge).to.eql(2.8);",
+							"    pm.expect(mylist[2].Charge).to.eql(2.8);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9103/interoperability/api/PassesAnalysis/AO/OO/20200101/20200106",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9103",
+					"path": [
+						"interoperability",
+						"api",
+						"PassesAnalysis",
+						"AO",
+						"OO",
+						"20200101",
+						"20200106"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "PassesAnalysis Example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9103/interoperability/api/PassesAnalysis/AO/OO/20200101/20200106",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9103",
+							"path": [
+								"interoperability",
+								"api",
+								"PassesAnalysis",
+								"AO",
+								"OO",
+								"20200101",
+								"20200106"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "772"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"304-fvEvvbv3jXo8oSeUkQyZI2oYKmo\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 18 Feb 2022 15:22:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"op1_ID\": \"AO\",\n  \"op2_ID\": \"OO\",\n  \"RequestTimestamp\": \"2022-02-18 17:22:31\",\n  \"PeriodFrom\": \"2020-01-01 00:00:00\",\n  \"PeriodTo\": \"2020-01-06 00:00:00\",\n  \"NumberOfPasses\": 3,\n  \"PassesList\": [\n    {\n      \"PassIndex\": 1,\n      \"PassID\": \"RZS3379376\",\n      \"StationID\": \"AO16\",\n      \"TimeStamp\": \"2020-01-05 19:58:00\",\n      \"VehicleID\": \"EE22TMX10817\",\n      \"Charge\": 2.8\n    },\n    {\n      \"PassIndex\": 2,\n      \"PassID\": \"SUM5157958\",\n      \"StationID\": \"AO00\",\n      \"TimeStamp\": \"2020-01-03 14:48:00\",\n      \"VehicleID\": \"XV40HUQ04740\",\n      \"Charge\": 2.8\n    },\n    {\n      \"PassIndex\": 3,\n      \"PassID\": \"VBM3314283\",\n      \"StationID\": \"AO04\",\n      \"TimeStamp\": \"2020-01-05 21:29:00\",\n      \"VehicleID\": \"VJ92OYV94295\",\n      \"Charge\": 2.8\n    }\n  ]\n}\n"
+				}
+			]
+		},
+		{
+			"name": "Reset Passes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9103/interoperability/api/admin/resetpasses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9103",
+					"path": [
+						"interoperability",
+						"api",
+						"admin",
+						"resetpasses"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Reset Passes example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9103/interoperability/api/admin/resetpasses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9103",
+							"path": [
+								"interoperability",
+								"api",
+								"admin",
+								"resetpasses"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Feb 2022 08:27:55 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						},
+						{
+							"key": "Content-Length",
+							"value": "16"
+						}
+					],
+					"cookie": [],
+					"body": "{\"status\":\"OK\"}\n"
+				}
+			]
+		},
+		{
+			"name": "Reset Stations",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9103/interoperability/api/admin/resetstations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9103",
+					"path": [
+						"interoperability",
+						"api",
+						"admin",
+						"resetstations"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Reset Stations example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9103/interoperability/api/admin/resetstations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9103",
+							"path": [
+								"interoperability",
+								"api",
+								"admin",
+								"resetstations"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Feb 2022 08:34:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						},
+						{
+							"key": "Content-Length",
+							"value": "16"
+						}
+					],
+					"cookie": [],
+					"body": "{\"status\":\"OK\"}\n"
+				}
+			]
+		},
+		{
+			"name": "Reset Vehicles",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9103/interoperability/api/admin/resetvehicles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9103",
+					"path": [
+						"interoperability",
+						"api",
+						"admin",
+						"resetvehicles"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Reset Vehicles example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9103/interoperability/api/admin/resetvehicles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9103",
+							"path": [
+								"interoperability",
+								"api",
+								"admin",
+								"resetvehicles"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Feb 2022 08:34:53 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						},
+						{
+							"key": "Content-Length",
+							"value": "16"
+						}
+					],
+					"cookie": [],
+					"body": "{\"status\":\"OK\"}\n"
+				}
+			]
+		}
+	]
+}
