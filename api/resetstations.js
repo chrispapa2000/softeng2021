@@ -21,6 +21,7 @@ function fun (req, response) {
    });
    //console.log(python);
    python.on('close', (code) => {
+     //console.log(python)
      console.log(`child process close all stdio with code ${code}`);
      if (code === 0)
      {

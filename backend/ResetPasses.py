@@ -28,6 +28,10 @@ def main():
     statement = "TRUNCATE TABLE Pass"
     cur.execute(statement)
     conn.commit()
+
+    statement = "TRUNCATE TABLE charge"
+    cur.execute(statement)
+    conn.commit()
     """
     #Pass
     try:
@@ -38,12 +42,15 @@ def main():
     except OSError as e:
         print(e)
         sys.exit(1)
-
-    csvreader = csv.reader(file)
-    for row in csvreader:
+    try:
+        csvreader = csv.reader(file)
+        dataset = list(csvreader)
         statement = "INSERT INTO Pass (Pass_id, Timestamp, vehicleVehicle_ref, stationStation_id, companyCompany_abbr) VALUES (%s, %s, %s, %s, %s)"
-        cur.execute(statement, row)
+        cur.executemany(statement, dataset)
         conn.commit()
+    except Error as e:
+        print(e)
+        sys.exit(1)
 
     file.close()
     """

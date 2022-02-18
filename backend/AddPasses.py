@@ -86,7 +86,10 @@ def main():
     #print(header)
     rows1 = []
     rows2 = []
-    n = max(charge_keys)
+    if (charge_keys):
+        n = max(charge_keys)
+    else:
+        n = 0
     for row in csvreader:
         n+=1
         #rows.append(row)
@@ -128,9 +131,10 @@ def main():
             print("duplicate primary key error")
             exit(1)
 
-        statement = "INSERT INTO Pass (Pass_id, Timestamp, vehicleVehicle_ref, stationStation_id, companyCompany_abbr) VALUES (%s, %s, %s, %s, %s)"
-        cur.execute(statement, row)
-        conn.commit()
+    dataset = list(csvreader)
+    statement = "INSERT INTO Pass (Pass_id, Timestamp, vehicleVehicle_ref, stationStation_id, companyCompany_abbr) VALUES (%s, %s, %s, %s, %s)"
+    cur.executemany(statement, dataset)
+    conn.commit()
     file.close()
 
     try:
@@ -140,13 +144,11 @@ def main():
         sys.exit(1)
 
     csvreader = csv.reader(file)
-    for row in csvreader:
-        statement = "INSERT INTO charge (Charge_id, Charge_amount, PassPass_id) VALUES (%s, %s, %s)"
-        cur.execute(statement, row)
-        conn.commit()
+    dataset = list(csvreader)
+    statement = "INSERT INTO charge (Charge_id, Charge_amount, PassPass_id) VALUES (%s, %s, %s)"
+    cur.executemany(statement, dataset)
+    conn.commit()
     file.close()
-
-    """"""
 
     statement = "SET FOREIGN_KEY_CHECKS = 1"
     cur.execute(statement)

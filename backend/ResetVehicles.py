@@ -19,29 +19,40 @@ def main():
         sys.exit(1)
 
     # Get Cursor
-    cur = conn.cursor()
-    statement = "SET FOREIGN_KEY_CHECKS = 0"
-    cur.execute(statement)
-    conn.commit()
-
-    statement = "TRUNCATE TABLE vehicle"
-    cur.execute(statement)
-    conn.commit()
-
-    statement = "SET FOREIGN_KEY_CHECKS = 1"
-    cur.execute(statement)
-    conn.commit()
-
-    #vehicle
-    #this is the path from the api folder, where the js program that runs this script resides
-    file = open("../backend/initial_data/vehicles.csv")
-    csvreader = csv.reader(file)
-    for row in csvreader:
-        statement = "INSERT INTO vehicle (Vehicle_ref) VALUES (%s)"
-        cur.execute(statement, row)
+    try:
+        cur = conn.cursor()
+        statement = "SET FOREIGN_KEY_CHECKS = 0"
+        cur.execute(statement)
         conn.commit()
-    file.close()
 
+        statement = "TRUNCATE TABLE vehicle"
+        cur.execute(statement)
+        conn.commit()
+
+        statement = "SET FOREIGN_KEY_CHECKS = 1"
+        cur.execute(statement)
+        conn.commit()
+    except Error as e:
+        print(e)
+        sys.exit(1)
+
+    try:
+        file = open("../backend/initial_data/vehicles.csv")
+    except OSError as e:
+        print(e)
+        sys.exit(1)
+
+    try:
+        csvreader = csv.reader(file)
+        dataset = list(csvreader)
+        statement = "INSERT INTO vehicle (Vehicle_ref) VALUES (%s)"
+        cur.executemany(statement, dataset)
+        conn.commit()
+    except Error as e:
+        print(e)
+        sys.exit(1)
+
+    file.close()
     conn.close()
 
 main()
