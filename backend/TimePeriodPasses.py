@@ -51,17 +51,17 @@ def main():
     dic2 = dict()
     dic2["Period"] = "00-08"
     dic2["Passes"] = counter1
-    dic2["Frequency"] = counter1 / len(result)
+    dic2["Percentage"] = counter1 / len(result)
     PeriodList.append(dic2)
     dic3 = dict()
     dic3["Period"] = "08-16"
     dic3["Passes"] = counter2
-    dic3["Frequency"] = counter2 / len(result)
+    dic3["Percentage"] = counter2 / len(result)
     PeriodList.append(dic3)
     dic4 = dict()
     dic4["Period"] = "16-00"
     dic4["Passes"] = counter3
-    dic4["Frequency"] = counter3 / len(result)
+    dic4["Percentage"] = counter3 / len(result)
     PeriodList.append(dic4)
     dic["PeriodList"] = PeriodList
     

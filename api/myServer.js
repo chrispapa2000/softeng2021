@@ -20,6 +20,7 @@ require('./PassesPerStation')(app);
 require('./PassesAnalysis')(app);
 require('./PassesCost')(app);
 require('./ChargesBy')(app);
+require('./TimePeriodPasses')(app);
 
 'use strict';
 const multer = require('multer');
