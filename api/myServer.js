@@ -21,6 +21,7 @@ require('./PassesAnalysis')(app);
 require('./PassesCost')(app);
 require('./ChargesBy')(app);
 require('./TimePeriodPasses')(app);
+require('./CalculateDiff')(app);
 
 'use strict';
 const multer = require('multer');
