@@ -8,10 +8,10 @@ def main():
     try:
         conn = mariadb.connect(
             user="tolltrolls",
-            password="diakopeskantere",
-            host="tolltrolls.tk",
+            password="123",
+            host="localhost",
             port=3306, #???
-            database="tolltrolls"
+            database="interoperability-db"
         )
 
     except mariadb.Error as e:
@@ -52,18 +52,6 @@ def main():
         if sum == 0:
             continue
             
-        cur.execute("SELECT a.Charge_amount FROM charge a INNER JOIN Pass b on a.PassPass_id = b.Pass_id WHERE b.companyCompany_abbr = %s AND LEFT(b.stationStation_id, 2) = %s AND b.Timestamp BETWEEN %s AND %s", (op_id, comp, time_s, time_f))
-
-        result2 = cur.fetchall()
-        reverse_cost = 0
-        for entry in result2:
-            reverse_cost += entry[0]
-
-        sum -= reverse_cost
-
-        if(sum <= 0):
-            continue
-
         tup = (comp, len(result), sum)
         #print(tup)
         d2 = dict()

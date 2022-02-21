@@ -10,10 +10,10 @@ def main():
     try:
         conn = mariadb.connect(
             user="tolltrolls",
-            password="diakopeskantere",
-            host="tolltrolls.tk",
+            password="123",
+            host="localhost",
             port=3306, #???
-            database="tolltrolls"
+            database="interoperability-db"
         )
 
     except mariadb.Error as e:
