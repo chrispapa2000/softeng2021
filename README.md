@@ -22,7 +22,7 @@
 - Install Apache Server as shown here:
   https://httpd.apache.org/docs/2.4/install.html
 - Move/Copy the contents of the frontend folder in the default apache server folder (usually /srv/http/ or ~/public_html or /var/www/html/)
-- Create a database user named "tolltrolls" with a password (default used: 123) and a database named "interoperability-db", then fill the database using the sql dump.
+- Create a database user named "tolltrolls" with a password (default used: 123) and a database named "interoperability_db", then fill the database using the sql dump.
 - If you used a different db username/password/db name make sure to change it accordingly on the backend files.
  
 
