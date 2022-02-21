@@ -50,7 +50,7 @@ def main():
         partialcost_1 += entry[0]
     for entry in result2:
         partialcost_2 += entry[0]
-    totalcost = partialcost_2 - partialcost_1
+    totalcost = partialcost_1 - partialcost_2
     json_data = {"op1_ID": op1, "op2_ID": op2, "RequestTimestamp": current_date.strftime("%d-%m-%Y %H:%M:%S"), "PeriodFrom": datefrom, "PeriodTo": dateto, "NumberOfPasses": number_of_passes, "PassesCost": round(totalcost, 2)}
     json_formatted_str = json.dumps(json_data, indent=2)
     print(json_formatted_str)
