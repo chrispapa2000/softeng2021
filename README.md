@@ -21,7 +21,7 @@
   > pip3 install mariadb
 - Install Apache Server as shown here:
   https://httpd.apache.org/docs/2.4/install.html
-- Move/Copy the contents of the frontend folder in the ~/public_html
+- Move/Copy the contents of the frontend folder in the default apache server folder (usually /srv/http/ or ~/public_html)
  
 
 
