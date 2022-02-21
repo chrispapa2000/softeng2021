@@ -35,15 +35,22 @@ def main():
     #cur.execute("SELECT * FROM Pass WHERE Timestamp BETWEEN '2020-01-01' AND '2021-02-02'") #(datefrom, dateto))
     cur.execute("SELECT a.Charge_amount FROM charge a INNER JOIN Pass b on a.PassPass_id = b.Pass_id WHERE b.companyCompany_abbr = %s AND LEFT(b.stationStation_id, 2) = %s AND b.Timestamp BETWEEN %s AND %s", (op2, op1, datefrom, dateto))
     result = cur.fetchall()
+
+    cur.execute("SELECT a.Charge_amount FROM charge a INNER JOIN Pass b on a.PassPass_id = b.Pass_id WHERE b.companyCompany_abbr = %s AND LEFT(b.stationStation_id, 2) = %s AND b.Timestamp BETWEEN %s AND %s", (op1, op2, datefrom, dateto))
+    result2 = cur.fetchall()
     #jsonObj = json.dumps(result)
     #print(jsonObj)
-    number_of_passes = len(result)
-    totalcost = 0
+    number_of_passes = len(result + result2)
+    partialcost_1 = 0
+    partialcost_2 = 0
     current_date = datetime.datetime.now()
     datefrom += " 00:00:00"
     dateto += " 00:00:00"
     for entry in result:
-        totalcost += entry[0]
+        partialcost_1 += entry[0]
+    for entry in result2:
+        partialcost_2 += entry[0]
+    totalcost = partialcost_2 - partialcost_1
     json_data = {"op1_ID": op1, "op2_ID": op2, "RequestTimestamp": current_date.strftime("%d-%m-%Y %H:%M:%S"), "PeriodFrom": datefrom, "PeriodTo": dateto, "NumberOfPasses": number_of_passes, "PassesCost": round(totalcost, 2)}
     json_formatted_str = json.dumps(json_data, indent=2)
     print(json_formatted_str)

@@ -38,7 +38,7 @@ def main():
             password="123",
             host="localhost",
             port=3306, #??
-            database="interoperability-db"
+            database="interoperability_db"
         )
 
     except mariadb.Error as e:
