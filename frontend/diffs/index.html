@@ -18,8 +18,8 @@
 				<div class="sidebar-heading border-bottom border-dark bg-dark text-light"><a class="nav-link text-light" href="../index.html">TollTrolls</a></div>	
 				<div class="list-group list-group-flush">
 					<a class="list-group-item list-group-item-action list-group-item-dark p-3 bg-dark text-light" href="../cost/index.html">Passes Cost</a>
-					<a class="list-group-item list-group-item-action list-group-item-dark p-3 bg-dark text-light" href="">Passes Analysis</a>
-					<a class="list-group-item list-group-item-action list-group-item-dark p-3 bg-dark text-light" href="../diffs/index.html">Calculate Differences</a>
+					<a class="list-group-item list-group-item-action list-group-item-dark p-3 bg-dark text-light" href="../analysis/index.html">Passes Analysis</a>
+					<a class="list-group-item list-group-item-action list-group-item-dark p-3 bg-dark text-light" href="">Calculate Differences</a>
 				</div>
 			</div>
 			<!-- Page content wrapper-->
@@ -39,10 +39,10 @@
 				</nav>
 				<!-- Page content-->
 				<div class="container-fluid bg-secondary border-dark">
-					<h1 class="mt-4 border-dark bg-secondary text-light">Passes Analysis</h1>
+					<h1 class="mt-4 border-dark bg-secondary text-light">Calculate Differences</h1>
 
 					<form method="post">
-						<h5 class="text-light">Station Operator</h5>
+						<h5 class="text-light">Operator 1</h5>
 						<select id="op1">
 							<option value="AO"> AO </option>
 							<option value="EG"> EG </option>
@@ -52,7 +52,7 @@
 							<option value="NE"> NE </option>
 							<option value="OO"> OO </option>
 						</select>
-						<h5 class="text-light">Tag Operator</h5>
+						<h5 class="text-light">Operator 2</h5>
 						<select id="op2">
 							<option value="AO"> AO </option>
 							<option value="EG"> EG </option>
@@ -61,7 +61,7 @@
 							<option value="MR"> MR </option>
 							<option value="NE"> NE </option>
 							<option value="OO"> OO </option>
-						</select>
+						</select>	
 						<h5 class="text-light">From:</h5>
 						<input type="date" id="date-from" type="text" name="datefrom">
 						<h5 class="text-light">To:</h5>
@@ -74,13 +74,9 @@
 					<p id="download">
 					</p>
 					<table id="table" class="table table-striped table-primary table-active table-dark table-responsive">
-					</table>		
-					</p>
-					<h4 class="mt-2 text-light" id="title"></h4>
-					<p class="mt-2">
-					<table id="passeslist" class="table table-striped table-primary table-active table-dark table-responsive">
 					</table>
-					
+					<p class="text-light" id="explanation">
+
 					</p>
 				</div>
 			</div>
@@ -91,36 +87,37 @@
 		<script src="../js/scripts.js"></script>
 		<script>
 			function htmlToCSV(html, filename) {
-                                var data = [];
-                                var rows = document.querySelectorAll("table tr");
+				var data = [];
+				var rows = document.querySelectorAll("table tr");
 
-                                for (var i = 0; i < rows.length; i++) {
-                                        var row = [], cols = rows[i].querySelectorAll("td, th");
+				for (var i = 0; i < rows.length; i++) {
+					var row = [], cols = rows[i].querySelectorAll("td, th");
 
-                                        for (var j = 0; j < cols.length; j++) {
-                                                row.push(cols[j].innerText);
-                                        }
+					for (var j = 0; j < cols.length; j++) {
+						row.push(cols[j].innerText);
+					}
 
-                                        data.push(row.join(","));
-                                }
+					data.push(row.join(",")); 		
+				}
 
-                                downloadCSVFile(data.join("\n"), filename);
-                        }
-                        function downloadCSVFile(csv, filename) {
-                                var csv_file, download_link;
-                                csv_file = new Blob([csv], {type: "text/csv"});
-                                download_link = document.createElement("a");
-                                download_link.download = filename;
-                                download_link.href = window.URL.createObjectURL(csv_file);
-                                download_link.style.display = "none";
-                                document.body.appendChild(download_link);
-                                download_link.click();
-                        }
-                        function download(table, filename) {
-                                var html = document.querySelector("table").outerHTML;
-                                htmlToCSV(html, "Passes Analysis.csv");
-                        }
+				downloadCSVFile(data.join("\n"), filename);
+			}
+			function downloadCSVFile(csv, filename) {
+				var csv_file, download_link;
+				csv_file = new Blob([csv], {type: "text/csv"});
+				download_link = document.createElement("a");
+				download_link.download = filename;
+				download_link.href = window.URL.createObjectURL(csv_file);
+				download_link.style.display = "none";
+				document.body.appendChild(download_link);
+				download_link.click();
+			}
+			function download() {
+				var html = document.querySelector("table").outerHTML;
+				htmlToCSV(html, "PassesCost.csv");
+			}
 		</script>
+
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script type="text/javascript" src="api.js"></script>
 	</body>

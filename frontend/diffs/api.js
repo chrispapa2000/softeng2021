@@ -46,8 +46,8 @@ $(document).ready(function () {
 
 			alert("Request Succesful");
 			var table_str = `<tr>
-				<th>Station Operator</th>
-				<th>Tag Operator</th>
+				<th>Operator 1</th>
+				<th>Operator 2</th>
 				<th>Timestamp Request</th>
 				<th>Period From</th>
 				<th>Period To</th>
@@ -60,8 +60,12 @@ $(document).ready(function () {
 			});
 			table_str += `</tr>`;
 			document.getElementById("table").innerHTML = table_str;
-			var content = `Table Explanation: <p> Total cost of Passes with operator's  <b>` + data['op2_ID'] + `</b> tag on operator's <b>` +
-				data['op1_ID'] + `</b> stations is <b>` + data['PassesCost'] + `\u20AC` + `</b>.</p>`;
+			if (data['PassesCost'] < 0){
+				var content = `Operator 1 ` + data['op1_ID'] + ` owes Operator 2 ` + data['op2_ID'] + `<b> ` + data['PassesCost'] + `\u20AC</b>.</p>`;
+			}
+			else {
+				var content = `Operator 2 ` + data['op2_ID'] + ` owes Operator 1 ` + data['op1_ID'] + `<b> ` + data['PassesCost'] + `\u20AC</b>.</p>`;
+			}
 			document.getElementById("download").innerHTML = '<input value="Export as CSV" type="button" id="download-button" onClick="download()">';
 			document.getElementById("explanation").innerHTML = content;
 		}
