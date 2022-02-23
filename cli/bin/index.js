@@ -153,7 +153,7 @@ require('yargs/yargs')(process.argv.slice(2))
     desc: 'returns total number of events that happend in op stations and their cost, with tags of other operators',
     handler: (argv) => {
       //console.log('chargesby')
-      chargesby.ret(argv.op, argv.datefrom, argv.dateto, argv.format)
+      chargesby.ret(argv.op1, argv.datefrom, argv.dateto, argv.format)
     },
     builder: (yargs) => yargs
       .option('op1', {

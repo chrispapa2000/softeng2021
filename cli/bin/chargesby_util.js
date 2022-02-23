@@ -1,8 +1,8 @@
 const http = require('http');
 
-module.exports = { ret: ret };function ret(op, datefrom, dateto, format)
+module.exports = { ret: ret };function ret(op1, datefrom, dateto, format)
 {
-  http.get('http://localhost:9103/interoperability/api/chargesby/'+op+'/'+datefrom+'/'+dateto+'/?format=json', (resp) => {
+  http.get('http://localhost:9103/interoperability/api/chargesby/'+op1+'/'+datefrom+'/'+dateto+'/?format=json', (resp) => {
     let data = '';
 
     // A chunk of data has been received.
