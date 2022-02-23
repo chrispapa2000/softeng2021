@@ -156,7 +156,7 @@ require('yargs/yargs')(process.argv.slice(2))
       chargesby.ret(argv.op, argv.datefrom, argv.dateto, argv.format)
     },
     builder: (yargs) => yargs
-      .option('op', {
+      .option('op1', {
         desc: 'operator',
         type: 'string',
         demandOption: true
