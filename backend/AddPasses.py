@@ -93,9 +93,9 @@ def main():
     for row in csvreader:
         n+=1
         #rows.append(row)
-        print(row)
+        #print(row)
         temp = row[0].split(";")
-        print(temp)
+        #print(temp)
         pass_id = temp[0]
 
         time = extract_time(temp[1])
