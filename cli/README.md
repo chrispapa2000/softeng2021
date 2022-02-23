@@ -8,3 +8,4 @@ Execute:
 -npm install -g
 
 -npm i yargs
+-npm install request
