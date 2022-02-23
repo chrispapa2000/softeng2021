@@ -32,6 +32,10 @@ $(document).ready(function () {
                                 alert("Missing Input");
                                 return response.json().then((errorObj) => setErrors(errorObj));
                         }
+			else if (response.status === 402){
+				alert("No Data Found");
+                                return response.json().then((errorObj) => setErrors(errorObj));
+			}
 		}
 		// Calling that async function
 		getapi(api_url);

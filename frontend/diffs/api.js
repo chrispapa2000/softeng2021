@@ -28,8 +28,13 @@ $(document).ready(function () {
 				console.log(data);
 				show(data);
 			}
+			
 			else if (response.status === 400){
 				alert("Missing Input");
+				return response.json().then((errorObj) => setErrors(errorObj));
+			}
+			else if (response.status === 402){
+				alert("No Data Found");
 				return response.json().then((errorObj) => setErrors(errorObj));
 			}
 		}

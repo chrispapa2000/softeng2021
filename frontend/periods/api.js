@@ -31,6 +31,10 @@ $(document).ready(function () {
 				alert("Missing Input");
 				return response.json().then((errorObj) => setErrors(errorObj));
 			}
+			else if (response.status === 402){
+				alert("No Data Found");
+				return response.json().then((errorObj) => setErrors(errorObj));
+			}
 		}
 		// Calling that async function
 		getapi(api_url);
@@ -41,26 +45,40 @@ $(document).ready(function () {
 		}
 		// Function to define innerHTML for HTML table
 		function show(data) {
-
 			alert('request successful!');
 			var data2 = data['PeriodList'];
-
 			const ctx = document.getElementById('myChart');//.getContext('2d');
 			const myChart = new Chart(ctx, {
-			type: 'doughnut',
-			data: {
-				labels: ['00-08', '8-16', '16-00'],
-				datasets: [{
-					label: '# of Passes',
-					data: [data['PeriodList'][0]['Passes'], data['PeriodList'][1]['Passes'], data['PeriodList'][2]['Passes']],
-					backgroundColor: [
-						'rgb(255,0,0)',
-						'rgb(0,255,0)',
-						'rgb(0,0,255)'
-					],
-					hoverOffset: 4
-				}]
-			}
+				type: 'doughnut',
+				data: {
+					labels: ['00:00-07:59', '08:00-15:59', '16:00-23:59'],
+					color: ['rgb(248, 249, 250)'],
+					datasets: [{
+						label: '# of Passes',
+						data: [data['PeriodList'][0]['Passes'], data['PeriodList'][1]['Passes'], data['PeriodList'][2]['Passes']],
+						backgroundColor: [
+							'rgb(255, 99, 132)',
+							'rgb(54, 162, 235)',
+							'rgb(255, 205, 86)'
+						],
+						hoverOffset: 4
+					}]
+				},
+				options:{
+					plugins: {
+						legend: {
+							display:true,
+							labels:{
+								color:'rgb(248, 249, 250)'
+							}
+						},
+						title:{
+							display:true,
+							text: '# of Passes',
+							color:'rgb(248, 249, 250)'
+						}
+					}
+				}
 			});
 		}
 
