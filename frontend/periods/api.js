@@ -47,7 +47,7 @@ $(document).ready(function () {
 
 			const ctx = document.getElementById('myChart');//.getContext('2d');
 			const myChart = new Chart(ctx, {
-			type: 'pie',
+			type: 'doughnut',
 			data: {
 				labels: ['00-08', '8-16', '16-00'],
 				datasets: [{
