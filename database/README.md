@@ -1,7 +1,5 @@
-# **Database**
+# **Database (Implemented in MariaDB)**
 
 Contents:
 
   - Database dump (sql).
-  
-  - Implemented in mariadb. 
