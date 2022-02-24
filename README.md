@@ -10,8 +10,11 @@
     > sudo pacman -S nodejs npm python3 python-pip mariadb
 - Install cors, request, yargs and global using npm:
   >npm i --save cors
+  >
   >sudo npm install -g
+  >
   >npm i yargs
+  >
   >npm install request
 
 - Install MariaDB Connector/C
