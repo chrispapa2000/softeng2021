@@ -1,4 +1,4 @@
-# **Back-end**
+# **Backend**
   
   - Source Code for inserting, managing and accessing data from the database.
 
