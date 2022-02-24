@@ -8,8 +8,11 @@
     > sudo apt install nodejs npm python3 python3-pip mariadb-server
   - For Arch based distros:
     > sudo pacman -S nodejs npm python3 python-pip mariadb
-- Install cors using npm:
+- Install cors, request, yargs and global using npm:
   >npm i --save cors
+  >sudo npm install -g
+  >npm i yargs
+  >npm install request
 
 - Install MariaDB Connector/C
   https://mariadb.com/docs/clients/mariadb-connectors/connector-c/install/
