@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 23, 2022 at 01:17 PM
+-- Generation Time: Feb 24, 2022 at 12:58 PM
 -- Server version: 10.3.28-MariaDB
 -- PHP Version: 8.1.3
 
@@ -36113,20 +36113,6 @@ INSERT INTO `company` (`Company_abbr`, `Company_name`, `userUser_id`) VALUES
 ('MR', 'moreas', 6),
 ('NE', 'nea_odos', 4),
 ('OO', 'olympia_odos', 5);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `deposit`
---
-
-CREATE TABLE `deposit` (
-  `deposit id` int(10) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `amount` int(10) NOT NULL,
-  `companyCompany_abbr_cred` varchar(2) NOT NULL,
-  `companyCompany_abbr2_deb` varchar(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -72831,14 +72817,6 @@ ALTER TABLE `company`
   ADD KEY `FKcompany606305` (`userUser_id`);
 
 --
--- Indexes for table `deposit`
---
-ALTER TABLE `deposit`
-  ADD PRIMARY KEY (`deposit id`),
-  ADD KEY `Credited` (`companyCompany_abbr_cred`),
-  ADD KEY `Debited` (`companyCompany_abbr2_deb`);
-
---
 -- Indexes for table `government_official`
 --
 ALTER TABLE `government_official`
@@ -72905,12 +72883,6 @@ ALTER TABLE `charge`
   MODIFY `Charge_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36014;
 
 --
--- AUTO_INCREMENT for table `deposit`
---
-ALTER TABLE `deposit`
-  MODIFY `deposit id` int(10) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `government_official`
 --
 ALTER TABLE `government_official`
@@ -72943,13 +72915,6 @@ ALTER TABLE `charge`
 --
 ALTER TABLE `company`
   ADD CONSTRAINT `FKcompany606305` FOREIGN KEY (`userUser_id`) REFERENCES `user` (`User_id`);
-
---
--- Constraints for table `deposit`
---
-ALTER TABLE `deposit`
-  ADD CONSTRAINT `Credited` FOREIGN KEY (`companyCompany_abbr_cred`) REFERENCES `company` (`Company_abbr`),
-  ADD CONSTRAINT `Debited` FOREIGN KEY (`companyCompany_abbr2_deb`) REFERENCES `company` (`Company_abbr`);
 
 --
 -- Constraints for table `government_official`
