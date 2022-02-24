@@ -47,6 +47,6 @@
 - Example of call: http://localhost:9103/interoperability/api/chargesby/{op_id}/{start_date}/{end_date}
 
 - CLI Usage:
-  -se2157 --help
+  - se2157 --help
 
 - Frontend example: https://tolltrolls.tk/
