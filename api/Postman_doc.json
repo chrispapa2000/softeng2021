@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "629c26b3-39dd-4a73-9be6-98b897269f7c",
-		"name": "SoftEng 2021-2022 requests",
+		"_postman_id": "c27c4e01-ede0-47d3-adb5-839bac2c6130",
+		"name": "SoftEng 2021-2021 API documentation",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -29,19 +29,16 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:9103/interoperability/api/admin/healthcheck",
-					"protocol": "http",
+					"raw": "{{baseURL}}/admin/healthcheck",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "9103",
 					"path": [
-						"interoperability",
-						"api",
 						"admin",
 						"healthcheck"
 					]
-				}
+				},
+				"description": "format: {{baseURL}}/admin/healthcheck\n\nThis request checks if the API can connect to the database Server and returns a connection string"
 			},
 			"response": [
 				{
@@ -117,19 +114,16 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:9103/interoperability/api/admin/",
-					"protocol": "http",
+					"raw": "{{baseURL}}/admin/",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "9103",
 					"path": [
-						"interoperability",
-						"api",
 						"admin",
 						""
 					]
-				}
+				},
+				"description": "This is an example of an invalid request"
 			},
 			"response": [
 				{
@@ -233,21 +227,18 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:9103/interoperability/api/PassesPerStation/KO01/20190101/20190102",
-					"protocol": "http",
+					"raw": "{{baseURL}}/PassesPerStation/KO01/20190101/20190102",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "9103",
 					"path": [
-						"interoperability",
-						"api",
 						"PassesPerStation",
 						"KO01",
 						"20190101",
 						"20190102"
 					]
-				}
+				},
+				"description": "format: {{baseURL}}/PassesPerStation/station/datefrom/dateto\n\nThis request returns information about the passes that happened at the specified station between datefrom and dateto"
 			},
 			"response": [
 				{
@@ -353,22 +344,19 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:9103/interoperability/api/PassesCost/AO/OO/20201001/20201101",
-					"protocol": "http",
+					"raw": "{{baseURL}}/PassesCost/AO/OO/20201001/20201101",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "9103",
 					"path": [
-						"interoperability",
-						"api",
 						"PassesCost",
 						"AO",
 						"OO",
 						"20201001",
 						"20201101"
 					]
-				}
+				},
+				"description": "format: \n {{baseURL}}/PassesCost/op1/op2/datefrom/dateto\n\nThis request returns the total number of passes happened in stations of op1 with tags of op2 between datefrom and dateto and their cost."
 			},
 			"response": [
 				{
@@ -499,21 +487,18 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:9103/interoperability/api/chargesby/AO/20210501/20210601",
-					"protocol": "http",
+					"raw": "{{baseURL}}/chargesby/AO/20210501/20210601",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "9103",
 					"path": [
-						"interoperability",
-						"api",
 						"chargesby",
 						"AO",
 						"20210501",
 						"20210601"
 					]
-				}
+				},
+				"description": "format : \n {{baseURL}}/chargesby/op/datefrom/dateto\n\nThis request returns the number of passes that happened in op's stations with tags of other operators and their cost between datefrom and dateto. This information in given returned for each distrinct operator (other than op) separately."
 			},
 			"response": [
 				{
@@ -599,22 +584,19 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:9103/interoperability/api/PassesAnalysis/AO/OO/20200101/20200102",
-					"protocol": "http",
+					"raw": "{{baseURL}}/PassesAnalysis/AO/OO/20200101/20200102",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "9103",
 					"path": [
-						"interoperability",
-						"api",
 						"PassesAnalysis",
 						"AO",
 						"OO",
 						"20200101",
 						"20200102"
 					]
-				}
+				},
+				"description": "example of request that doesn't return data"
 			},
 			"response": [
 				{
@@ -714,22 +696,19 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:9103/interoperability/api/PassesAnalysis/AO/OO/20200101/20200106",
-					"protocol": "http",
+					"raw": "{{baseURL}}/PassesAnalysis/AO/OO/20200101/20200106",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "9103",
 					"path": [
-						"interoperability",
-						"api",
 						"PassesAnalysis",
 						"AO",
 						"OO",
 						"20200101",
 						"20200106"
 					]
-				}
+				},
+				"description": "format: {{baseURL}}/PassesAnalysis/op1/op2/datefrom/dateto\n\nThis request returns a list of events where a pass using a tag that belongs to op2 happens at one of op1's stations."
 			},
 			"response": [
 				{
@@ -816,19 +795,16 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:9103/interoperability/api/admin/resetpasses",
-					"protocol": "http",
+					"raw": "{{baseURL}}/admin/resetpasses",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "9103",
 					"path": [
-						"interoperability",
-						"api",
 						"admin",
 						"resetpasses"
 					]
-				}
+				},
+				"description": "format: {{baseURL}}/admin/resetpasses\n\nThis request truncates the table of passes in the database"
 			},
 			"response": [
 				{
@@ -904,19 +880,16 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:9103/interoperability/api/admin/resetstations",
-					"protocol": "http",
+					"raw": "{{baseURL}}/admin/resetstations",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "9103",
 					"path": [
-						"interoperability",
-						"api",
 						"admin",
 						"resetstations"
 					]
-				}
+				},
+				"description": "format: {{baseURL}}/admin/resetstations\n\nThis request resets the initial station records in the database"
 			},
 			"response": [
 				{
@@ -992,19 +965,16 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:9103/interoperability/api/admin/resetvehicles",
-					"protocol": "http",
+					"raw": "{{baseURL}}/admin/resetvehicles",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "9103",
 					"path": [
-						"interoperability",
-						"api",
 						"admin",
 						"resetvehicles"
 					]
-				}
+				},
+				"description": "format: {{baseURL}}/admin/resetvehicles\n\nThis request resets the initial vehicle records in the database"
 			},
 			"response": [
 				{
@@ -1060,6 +1030,248 @@
 					"body": "{\"status\":\"OK\"}\n"
 				}
 			]
+		},
+		{
+			"name": "Calculate Difference",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Check owed amount\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    var Cost = jsonData.PassesCost;",
+							"    pm.expect(Cost).to.eql(34.4);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/CalculateDiff/AO/OO/20201001/20201101",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"CalculateDiff",
+						"AO",
+						"OO",
+						"20201001",
+						"20201101"
+					]
+				},
+				"description": "{{baseURL}}/CalcultateDiff/op1/op2/datefrom/dateto\n\nThis request returns the amount owed by op2 to op1 for the passes that happend between datefrom and dateto"
+			},
+			"response": [
+				{
+					"name": "Calculate Difference Test",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/CalculateDiff/AO/OO/20201001/20201101",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"CalculateDiff",
+								"AO",
+								"OO",
+								"20201001",
+								"20201101"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "206"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ce-1gZuQYxYhXMkhOhkMr6BVmhDNI0\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 23 Feb 2022 15:03:12 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"op1_ID\": \"AO\",\n  \"op2_ID\": \"OO\",\n  \"RequestTimestamp\": \"23-02-2022 17:03:12\",\n  \"PeriodFrom\": \"2020-10-01 00:00:00\",\n  \"PeriodTo\": \"2020-11-01 00:00:00\",\n  \"NumberOfPasses\": 17,\n  \"PassesCost\": 34.4\n}\n"
+				}
+			]
+		},
+		{
+			"name": "Time Period Passes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Test\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    var L = jsonData.PeriodList;",
+							"    pm.expect(L[0].Passes).to.eql(6);",
+							"    pm.expect(L[1].Passes).to.eql(6);",
+							"    pm.expect(L[2].Passes).to.eql(4);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/TimePeriodPasses/AO01/20200101/20200301",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"TimePeriodPasses",
+						"AO01",
+						"20200101",
+						"20200301"
+					]
+				},
+				"description": "format: {{baseURL}}/TimePeriodPasses/station1/datefrom/dateto\n\nThis Request returns the average number of passes that happened for each of three time periods during a day. The average is calculated over the period between datefrom and dateto for the station specified in parameter station1"
+			},
+			"response": [
+				{
+					"name": "Time Period Passes Test",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/TimePeriodPasses/AO01/20200101/20200301",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"TimePeriodPasses",
+								"AO01",
+								"20200101",
+								"20200301"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "466"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1d2-DJtlUtVSkgE6tDkGtABeOuHRfnE\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 23 Feb 2022 15:02:44 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"Station\": \"AO01\",\n  \"StationOperator\": \"AO\",\n  \"RequestTimestamp\": \"2022-02-23 17:02:44\",\n  \"PeriodFrom\": \"2020-01-01 00:00:00\",\n  \"PeriodTo\": \"2020-03-01 00:00:00\",\n  \"NumberOfPasses\": 16,\n  \"PeriodList\": [\n    {\n      \"Period\": \"00-08\",\n      \"Passes\": 6,\n      \"Percentage\": 0.375\n    },\n    {\n      \"Period\": \"08-16\",\n      \"Passes\": 6,\n      \"Percentage\": 0.375\n    },\n    {\n      \"Period\": \"16-00\",\n      \"Passes\": 4,\n      \"Percentage\": 0.25\n    }\n  ]\n}\n"
+				}
+			]
+		},
+		{
+			"name": "Handle File",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/handlefile",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"handlefile"
+					]
+				},
+				"description": "format: {{baseURL}}/handlefile\n\nThis request passes csv file of passes in its body and the data contained in the file is inserted to the database"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:9103/interoperability/api"
+		},
+		{
+			"key": "op1",
+			"value": "AO"
 		}
 	]
 }
