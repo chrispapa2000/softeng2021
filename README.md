@@ -45,4 +45,8 @@
 - You can call the API using a typical http request from a browser or using an API platform like postman (https://www.postman.com)
 
 - Example of call: http://localhost:9103/interoperability/api/chargesby/{op_id}/{start_date}/{end_date}
+
+- CLI Usage:
+  -se2157 --help
+
 - Frontend example: https://tolltrolls.tk/
